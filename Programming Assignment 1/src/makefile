@@ -37,7 +37,7 @@ CFLAGS = -I $(IDIR)
 ### Rules
 
 # Build object files from c files depending on header
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 # Clean files from object and source
