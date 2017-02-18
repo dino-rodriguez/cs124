@@ -41,7 +41,8 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 # Clean files from object and source
-clean: rm -f $(ODIR)/*.o $(BDIR)/*
+clean:
+	rm -f $(ODIR)/*.o $(BDIR)/*
 
 # Make all
 all: randmst
