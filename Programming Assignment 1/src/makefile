@@ -8,11 +8,11 @@
 ### Constants
 
 # Directories to search
-VPATH = 
+VPATH =
 
 # Header files
 IDIR = ../include
-_DEPS = 
+_DEPS =
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 # Binary executable and object files
@@ -24,7 +24,7 @@ LDIR = ../lib
 LIBS = -lm
 
 # Compilation
-CC = gcc
+CC = g++
 CFLAGS = -I $(IDIR)
 
 
@@ -37,7 +37,7 @@ CFLAGS = -I $(IDIR)
 ### Rules
 
 # Build object files from c files depending on header
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 # Clean files from object and source
