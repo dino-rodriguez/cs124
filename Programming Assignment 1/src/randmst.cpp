@@ -14,7 +14,7 @@ int checkArgs(int argc, char*argv[])
 		cout<<"usage: "<< argv[0] <<" 0 numpoints numtrials dimension\n";
 		exit(0);
 	}
-	else 
+	else {
 		for (int i = 1; i < argc; i++) {
 			int arg = atoi(argv[i]);
 			int num;
@@ -25,12 +25,11 @@ int checkArgs(int argc, char*argv[])
 				exit(0);
 			}
 		}
+	}
 	return 0;
 }
 
 int main(int argc, char *argv[]) 
 {
 	checkArgs(argc, argv);
-	double r = rand();
-	cout<<r<"\n";
 }
