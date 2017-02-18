@@ -18,6 +18,7 @@ class Complete_Undirected {
 private:
     // variables for number of vertices and dimension
     int vertices, dimension;
+    int* V;
 
 public:
     // constructor, always takes in vertices
@@ -63,17 +64,13 @@ void Complete_Undirected::generate_graph() {
     // initialize V
     for (int i = 0; i < vertices; i++) {
         int D[vertices];
-        V[i] = -1;
 
         // create vertices, build distances for each
         for (int j = 0; j < vertices; j++) {
-            D[j] = rand();
+            D[j] = Complete_Undirected.gen_rand();
         }
-
+        V[i] = D;
     }
-
-    // insert edges into E
-
 
 }
 

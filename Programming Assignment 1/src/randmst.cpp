@@ -31,4 +31,6 @@ int checkArgs(int argc, char*argv[])
 int main(int argc, char *argv[]) 
 {
 	checkArgs(argc, argv);
+	double r = rand();
+	cout<<r<"\n";
 }
