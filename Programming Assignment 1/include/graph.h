@@ -4,6 +4,13 @@
  * Made by SJ Kim and Dino Rodriguez.
  */
 
+// libraries
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <time.h>
+
+using namespace std;
 
 // class for complete and undirected graphs
 class Complete_Undirected {
@@ -23,8 +30,61 @@ public:
     }
 
     // public methods
+    float euclid();
+    float gen_rand();
+    void insert_edges(int, int);
     void generate_graph();
-    void get_vertices();
-    void get_dimension();
+    int get_vertices();
+    int get_dimension();
     void print_graph();
+};
+
+float Complete_Undirected::euclid() {
+
+}
+
+float Complete_Undirected::gen_rand() {
+    // Seed random number generator with current machine time
+    srand(time(NULL));
+
+    // Generate a random number from [0, 1]
+    return (float)(rand() % RAND_MAX);
+}
+
+void Complete_Undirected::insert_edges(int v, int w) {
+
+}
+
+void Complete_Undirected::generate_graph() {
+
+    // instantiate arrays of vertices and distances
+    int V[vertices];
+
+    // initialize V
+    for (int i = 0; i < vertices; i++) {
+        int D[vertices];
+        V[i] = -1;
+
+        // create vertices, build distances for each
+        for (int j = 0; j < vertices; j++) {
+            D[j] = rand();
+        }
+
+    }
+
+    // insert edges into E
+
+
+}
+
+int Complete_Undirected::get_vertices() {
+
+}
+
+int Complete_Undirected::get_dimension() {
+
+}
+
+void Complete_Undirected::print_graph() {
+
 }

@@ -14,10 +14,10 @@ struct AList {
 };
 
 class Graph {
-	private: 
+	private:
 		int V;
 		struct AList* lst;
-	public: 
+	public:
 		Graph(int Vert) {
 			this->V = V;
 			lst = new AList [Vert];
@@ -43,6 +43,5 @@ class Graph {
 };
 
 // int main(void) {
-// 	Graph  
+// 	Graph
 // }
-
