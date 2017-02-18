@@ -45,8 +45,11 @@ clean:
 	rm -f $(ODIR)/*.o $(BDIR)/*
 
 # Make all
-all: randmst
+all: randmst complete_undirected_tests
 
 # Make individual files
 randmst: $(ODIR)/randmst.o
+	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
+
+complete_undirected_tests: $(ODIR)/complete_undirected_tests.o
 	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
