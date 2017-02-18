@@ -8,11 +8,11 @@
 ### Constants
 
 # Directories to search
-VPATH = 
+VPATH =
 
 # Header files
 IDIR = ../include
-_DEPS = 
+_DEPS =
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 # Binary executable and object files
@@ -24,7 +24,7 @@ LDIR = ../lib
 LIBS = -lm
 
 # Compilation
-CC = gcc
+CC = g++
 CFLAGS = -I $(IDIR)
 
 
