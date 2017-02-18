@@ -6,17 +6,23 @@
 
 using namespace std;
 
-int checkArgs (int argc, char*argv[]) 
+// checks for right number and types of args
+int checkArgs(int argc, char*argv[]) 
 {
 	// Checks number of arguments
-	if (argc != 5) 
-		cout<<"Usage: "<< argv[0] <<" 0 numpoints numtrials dimension\n";
+	if (argc != 5) {
+		cout<<"usage: "<< argv[0] <<" 0 numpoints numtrials dimension\n";
+		exit(0);
+	}
 	else 
 		for (int i = 1; i < argc; i++) {
-			int dim = *argv[4];
-			if (i == 4 && dim > 4) {
-				cout<<*argv[i]<<"\n";;
-				cout<<"The dimension must between 1 and 4!\n";
+			int arg = atoi(argv[i]);
+			int num;
+			// TODO: check if num is positive
+			// checks that each argument is an int
+			if (!(arg << num) && arg > 0) {
+				cout<<argv[i]<<" is not a number\n";
+				exit(0);
 			}
 		}
 	return 0;
