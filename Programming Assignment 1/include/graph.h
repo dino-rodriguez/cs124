@@ -41,6 +41,7 @@ public:
 
 float Complete_Undirected::euclid() {
 
+
 }
 
 float Complete_Undirected::gen_rand() {
