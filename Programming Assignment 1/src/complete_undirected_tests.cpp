@@ -9,8 +9,9 @@
 using namespace std;
 
 int main(void) {
-    Complete_Undirected C = Complete_Undirected(5, 1);
-    float n = C.gen_rand();
-    std::cout << n << '\n';
+    Complete_Undirected C = Complete_Undirected(5, 2);
+    C.generate_graph();
+    C.print_graph();
+
     return 0;
 }
