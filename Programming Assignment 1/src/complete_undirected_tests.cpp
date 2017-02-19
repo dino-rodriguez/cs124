@@ -9,10 +9,9 @@
 using namespace std;
 
 int main(void) {
-    Complete_Undirected C = Complete_Undirected(5, 1);
+    Complete_Undirected C = Complete_Undirected(5, 2);
     C.generate_graph();
-    double r = C.gen_rand();
-    cout<<r<<'\n';
+    C.print_graph();
 
     return 0;
 }
