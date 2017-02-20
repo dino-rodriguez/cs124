@@ -56,8 +56,29 @@ int Right(int i) {
     return 2*i + 1;
 }
 
+// ensure that i is the root of the max heap
 void minHeapify(int i) {
+    int smallest;
     int l = Left(i);
     int r = Right(i);
-
+    if (l < sz && this->H[l] < this->H[i])
+        smallest = l;
+    else 
+        smallest = i;
+    if (r < sz && this->H[r] < this->H[smallest])
+        smallest = r;
+    if (smallest != i) {
+        int buf = this->H[i];
+        this->H[i] = this->H[smallest];
+        this->H[smallest] = buf;
+        minHeapify(smallest);
+    }
 }
+
+void buildHeap() {
+    for (int k = floor(sz/2); i > 1; i--) {
+        minHeapify(k);
+    }
+}
+
+
