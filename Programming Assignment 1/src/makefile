@@ -45,7 +45,7 @@ clean:
 	rm -f $(ODIR)/*.o $(BDIR)/*
 
 # Make all
-all: randmst complete_undirected_tests
+all: clean randmst complete_undirected_tests
 
 # Make individual files
 randmst: $(ODIR)/randmst.o

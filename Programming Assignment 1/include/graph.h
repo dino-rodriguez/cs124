@@ -23,7 +23,7 @@ private:
 
 public:
     // constructor, always takes in vertices
-    Complete_Undirected(int v = 0, int d = 1) : vertices(v), dimension(d) {
+    Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d) {
         std::cout << "Complete_Undirected constructor called." << '\n';
     }
     // destructor, implicitly called and no arguments
@@ -40,6 +40,7 @@ public:
     void print_graph();
 };
 
+// calculate euclidean distance of two points
 float Complete_Undirected::euclid() {
     int k = this->dimension;
     float p1[k];
@@ -53,45 +54,46 @@ float Complete_Undirected::euclid() {
     return sum;
 }
 
+// generate a random number from [0, 1]
 float Complete_Undirected::gen_rand() {
-    // Generate a random number from [0, 1]
     double r = ((double)rand() / RAND_MAX);
     return r;
 }
 
+// generate graph (seeding once to maintain distribution)
 void Complete_Undirected::generate_graph() {
-    // Seed random number generator with current machine time
+    // seed random number generator with current machine time
     srand(time(NULL));
 
+    // number of vertices
     int n = this->vertices;
 
-    // initialize the 2-D array 
+    // initialize the 2-D array
     float** verts = new float* [n];
-    for(int k = 0; k < n; ++k)
+    for(int k = 0; k < n; k++)
         verts[k] = new float[n];
 
-    if (this->dimension == 1) {
-        // initialize V
+    if (this->dimension == 1 || this->dimension == 0) {
+        // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
-            // create vertices, build distances for each
             for (int j = 0; j < n; j++) {
                 verts[i][j] = this->gen_rand();
             }
         }
     } else {
-        // initialize V
+        // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
-            // create vertices, build distances for each
             for (int j = 0; j < n; j++) {
+                // calculate distance with euclid
                 float dist = this->euclid();
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
-        }    
+        }
     }
 
 
-    this->V = verts;    
+    this->V = verts;
 }
 
 int Complete_Undirected::get_vertices() {
@@ -105,7 +107,7 @@ int Complete_Undirected::get_dimension() {
 void Complete_Undirected::print_graph() {
     for (int i = 0; i < this->vertices; i++) {
         for (int j = 0; j < this->vertices; j++) {
-            cout<<this->V[i][j]<<'\n'; 
+            cout<<this->V[i][j]<<'\n';
         }
         cout<<"\n\n";
     }
