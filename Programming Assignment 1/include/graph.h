@@ -23,10 +23,12 @@ class Complete_Undirected {
 
     public:
         // constructor, always takes in vertices
-        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL){
+        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL) {
+            std::cout << "Complete_Undirected constructor called." << '\n';
         }
         // destructor, implicitly called and no arguments
         ~Complete_Undirected(void) {
+            std::cout << "Complete_Undirected deconstructor called." << '\n';
         }
 
         // public methods

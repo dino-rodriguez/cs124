@@ -11,7 +11,6 @@
 #include <time.h>
 #include <math.h>
 
-
 using namespace std;
 
 // class for complete and undirected graphs
@@ -63,7 +62,7 @@ void Heap::min_heapify(int i) {
     int r = this->Right(i);
     if (l < this->sz && this->H[l] < this->H[i])
         smallest = l;
-    else 
+    else
         smallest = i;
     if (r < this->sz && this->H[r] < this->H[smallest])
         smallest = r;
@@ -77,7 +76,7 @@ void Heap::min_heapify(int i) {
 }
 
 void Heap::build_heap() {
-    for (int k = floor(this->sz/2); k >= 1; k--) {      
+    for (int k = floor(this->sz/2); k >= 1; k--) {
         this->min_heapify(k);
     }
 }
@@ -97,7 +96,7 @@ int Heap::peek() {
     if (this->sz > 0)
         return this->H[0];
     // if nothing is in the heap
-    else 
+    else
         return -1;
 }
 
@@ -112,5 +111,3 @@ int Heap::extract_min() {
     this->min_heapify(0);
     return min;
 }
-
-
