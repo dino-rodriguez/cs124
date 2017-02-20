@@ -37,6 +37,7 @@ public:
     void generate_graph();
     int get_vertices();
     int get_dimension();
+    float** get_graph();
     void print_graph();
 };
 
@@ -86,28 +87,36 @@ void Complete_Undirected::generate_graph() {
             for (int j = 0; j < n; j++) {
                 // calculate distance with euclid
                 float dist = this->euclid();
+                // assign to edge to both vertices because undirected
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
     }
-
-
     this->V = verts;
 }
 
+// return the vertices of the graph
 int Complete_Undirected::get_vertices() {
-
+    return this->vertices;
 }
 
+// return the vertices of the graph
 int Complete_Undirected::get_dimension() {
-
+    return this->dimension;
 }
 
+// return the vertices of the graph
+float** Complete_Undirected::get_graph() {
+    return this->V;
+}
+
+// print the graph
 void Complete_Undirected::print_graph() {
     for (int i = 0; i < this->vertices; i++) {
+        cout<<"Vertex: "<<i<<'\n';
         for (int j = 0; j < this->vertices; j++) {
-            cout<<this->V[i][j]<<'\n';
+            cout<<"("<<i<<", "<<j<<") ->"<<this->V[i][j]<<'\n';
         }
         cout<<"\n\n";
     }
