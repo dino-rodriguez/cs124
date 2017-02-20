@@ -34,8 +34,11 @@ public:
     int findParent(int i);
     int Left(int i);
     int Right(int i);
+    // SJ
     void minHeapify();
     void buildHeap();
+
+    // Dino
     void peak();
     void extractMax();
     void insert();
