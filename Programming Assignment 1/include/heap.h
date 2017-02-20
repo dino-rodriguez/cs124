@@ -45,15 +45,15 @@ public:
 };
 
 int Heap::Parent(int i) {
-    return floor(i / 2);
+    return floor(i/ 2) - 1;
 }
 
 int Heap::Left(int i) {
-    return 2*i;
+    return 2*i - 1;
 }
 
 int Heap::Right(int i) {
-    return 2*i + 1;
+    return 2*i;
 }
 
 // ensure that i is the root of the max heap
@@ -77,7 +77,7 @@ void Heap::min_heapify(int i) {
 }
 
 void Heap::build_heap() {
-    for (int k = floor(this->sz/2); k > 1; k--) {      
+    for (int k = floor(this->sz/2); k >= 1; k--) {      
         this->min_heapify(k);
     }
 }
@@ -105,6 +105,8 @@ int Heap::extract_min() {
     // there must be at least one element on the heap
     assert(this->sz > 0);
     int min = this->H[0];
+
+    // swap the root with the last element
     this->H[0] = this->H[this->sz - 1];
     this->sz -= 1;
     this->min_heapify(0);
