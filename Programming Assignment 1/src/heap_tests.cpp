@@ -10,8 +10,8 @@
 using namespace std;
 
 int main(void) {
-	int A[4] = {4, 1, 2, 3};
-    Heap H = Heap(4, A);  
+	int A[6] = {10, 9, 8, 6, 3, 1};
+    Heap H = Heap(6, A);  
     H.build_heap();
     // cout<<"Extracting Min"<<'\n';
     // int min = H.extract_min();
