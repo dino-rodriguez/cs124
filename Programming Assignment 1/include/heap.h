@@ -48,11 +48,11 @@ int Heap::Parent(int i) {
 }
 
 int Heap::Left(int i) {
-    return 2*i - 1;
+    return 2*i;
 }
 
 int Heap::Right(int i) {
-    return 2*i;
+    return 2*i + 1;
 }
 
 // ensure that i is the root of the max heap
@@ -67,7 +67,6 @@ void Heap::min_heapify(int i) {
     if (r < this->sz && this->H[r] < this->H[smallest])
         smallest = r;
     if (smallest != i) {
-        cout<<"swap!"<<'\n';
         int buf = this->H[i];
         this->H[i] = this->H[smallest];
         this->H[smallest] = buf;
@@ -76,8 +75,8 @@ void Heap::min_heapify(int i) {
 }
 
 void Heap::build_heap() {
-    for (int k = floor(this->sz/2); k >= 1; k--) {
-        this->min_heapify(k);
+    for (int k = floor((this->sz)/2); k >= 1; k--) {
+        this->min_heapify(k-1);
     }
 }
 
