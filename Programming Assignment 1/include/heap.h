@@ -24,7 +24,7 @@ private:
 
 public:
     // constructor, always takes in vertices
-    Heap(int s = 0) : sz(s) {
+    Heap(int s = 0, int* arr) : sz(s), H(arr) {
         std::cout << "Heap constructor called." << '\n';
     }
     // destructor, implicitly called and no arguments
@@ -59,4 +59,5 @@ int Right(int i) {
 void minHeapify(int i) {
     int l = Left(i);
     int r = Right(i);
+
 }
