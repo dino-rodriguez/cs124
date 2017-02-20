@@ -45,13 +45,13 @@ clean:
 	rm -f $(ODIR)/*.o $(BDIR)/*
 
 # Make all
-all: clean randmst complete_undirected_tests heap_tests
+all: clean randmst graph_tests heap_tests
 
 # Make individual files
 randmst: $(ODIR)/randmst.o
 	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
 
-complete_undirected_tests: $(ODIR)/complete_undirected_tests.o
+graph_tests: $(ODIR)/graph_tests.o
 	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
 
 heap_tests: $(ODIR)/heap_tests.o
