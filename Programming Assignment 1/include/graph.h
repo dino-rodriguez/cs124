@@ -19,11 +19,11 @@ class Complete_Undirected {
     private:
         // variables for number of vertices and dimension
         int vertices, dimension;
-        float** V = NULL;
+        float** V;
 
     public:
         // constructor, always takes in vertices
-        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d) {
+        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL){
         }
         // destructor, implicitly called and no arguments
         ~Complete_Undirected(void) {
@@ -75,14 +75,15 @@ float** Complete_Undirected::generate_graph() {
     if (this->dimension == 0) {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = i + 1; j < n && i != j; j++) {
                 verts[i][j] = this->gen_rand();
+                verts[j][i] = this->gen_rand();
             }
         }
     } else {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (int j = i + 1; j < n && i != j; j++) {
                 // calculate distance with euclid
                 float dist = this->euclid();
                 // assign to edge to both vertices because undirected
