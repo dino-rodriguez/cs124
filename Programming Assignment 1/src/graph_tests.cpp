@@ -36,5 +36,8 @@ int main(void) {
     cout<<"D4\n";
     D4.print_graph();
 
+    // test prims on simple examples
+    D0.simple_graph(D1.get_graph());
+
     return 0;
 }
