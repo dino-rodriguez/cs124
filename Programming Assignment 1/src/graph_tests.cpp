@@ -27,14 +27,16 @@ int main(void) {
     D1.generate_graph();
     D4.generate_graph();
 
-    cout<<"D0\n";
-    D0.print_graph();
-    cout<<"D1\n";
-    D1.print_graph();
-    cout<<"D2\n";
-    D2.print_graph();
-    cout<<"D4\n";
-    D4.print_graph();
+    // cout<<"D0\n";
+    // D0.print_graph();
+    // cout<<"D1\n";
+    // D1.print_graph();
+    // cout<<"D2\n";
+    // D2.print_graph();
+    // cout<<"D4\n";
+    // D4.print_graph();
+
+    D1.build_MST();
 
     return 0;
 }
