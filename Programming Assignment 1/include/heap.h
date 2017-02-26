@@ -1,5 +1,5 @@
 /*
- * Header file for graph structure.
+ * Header file for min heap structure.
  *
  * Made by SJ Kim and Dino Rodriguez.
  */
@@ -13,7 +13,7 @@
 
 using namespace std;
 
-// class for complete and undirected graphs
+// class for min heaps
 class Heap {
 
 private:
@@ -31,7 +31,7 @@ public:
         std::cout << "Heap deconstructor called." << '\n';
     }
 
-    // methods
+    // public methods
     int Parent(int i);
     int Left(int i);
     int Right(int i);
