@@ -10,14 +10,18 @@
 using namespace std;
 
 int main(void) {
-	int A[7] = {7, 6, 5, 3, 4, 2, 1};
-    Heap H = Heap(7, A);  
-    H.build_heap();
-    H.print_heap();
-    for (int i = 0; i < 7; i++) {
-	    cout<<"Extracting Min"<<'\n';
-	    int min = H.extract_min();
-	    cout<<"Min extracted: "<<min<<'\n';
-    }
-    return 0;
+	Heap H = Heap();
+	H.insert(5);
+	H.insert(1);
+	H.insert(4);
+	H.insert(2);
+	H.insert(3);
+	H.print();
+	for (int i = 0; i < 5; i++) {
+		int min = H.extract_min();
+		cout<<min<<'\n';
+	}
 }
+
+
+
