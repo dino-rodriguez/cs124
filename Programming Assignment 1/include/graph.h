@@ -10,6 +10,7 @@
 #include <iostream>
 #include <time.h>
 #include <cmath>
+#include <typeinfo>
 
 using namespace std;
 
@@ -39,6 +40,7 @@ class Complete_Undirected {
         int get_dimension();
         float** get_graph();
         void print_graph();
+        float** prims();
 };
 
 // calculate euclidean distance of two points
@@ -129,4 +131,9 @@ void Complete_Undirected::print_graph() {
             cout<<"\n\n";
         }
     }
+}
+
+// run prims algorithm and return the MST of the graph
+float** Complete_Undirected::prims() {
+
 }

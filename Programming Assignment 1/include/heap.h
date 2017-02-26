@@ -1,5 +1,5 @@
 /*
- * Header file for graph structure.
+ * Header file for min heap structure.
  *
  * Made by SJ Kim and Dino Rodriguez.
  */
@@ -19,7 +19,7 @@ struct entry {
     int dist;
 };
 
-// class for complete and undirected graphs
+
 class Heap {
 
 private:
@@ -46,7 +46,6 @@ public:
     }
     void insert(entry i);
     entry delete_min();
-
 };
 
 int Heap::Parent(int i) {
