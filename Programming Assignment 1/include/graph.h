@@ -41,7 +41,7 @@ class Complete_Undirected {
         }
 
         // public methods
-        float euclid();
+        float euclid(float p1[], float p2[]);
         float gen_rand();
         float** generate_graph();
         int get_vertices();
@@ -55,14 +55,10 @@ class Complete_Undirected {
 };
 
 // calculate euclidean distance of two points
-float Complete_Undirected::euclid() {
+float Complete_Undirected::euclid(float p1[], float p2[]) {
     int k = this->dimension;
-    float p1[k];
-    float p2[k];
     float sum = 0;
     for (int i = 0; i < k; i++) {
-        p1[i] = this->gen_rand();
-        p2[i] = this->gen_rand();
         float diff = p2[i] - p1[i];
         sum += powf(diff, 2.0);
     }
@@ -97,11 +93,22 @@ float** Complete_Undirected::generate_graph() {
         }
 
     } else {
-        // create vertices, build distances for each
+        // allocate space for array of nodes of a given dimension
+        float nodes[this->vertices][this->dimension];
+
+        // create vertices
+        for (int i = 0; i < n; i++) {
+            // generate point
+            for (int j = 0; j < this->dimension; j++) {
+                nodes[i][j] = this->gen_rand();
+            }
+        }
+
+        // build distances for each edge
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
                 // calculate distance with euclid
-                float dist = euclid();
+                float dist = euclid(nodes[i], nodes[j]);
                 // assign to edge to both vertices because undirected
                 verts[i][j] = dist;
                 verts[j][i] = dist;
@@ -171,6 +178,7 @@ float Complete_Undirected::prims() {
 
     while(H.get_size() > 0) {
         entry v = H.delete_min();
+        std::cout << H.get_size() << '\n';
         set[v.vertex] = 1;
         for (int w = 0; w < vertices; w++) {
             if (set[w] == 1 || v.vertex == w) {

@@ -26,13 +26,14 @@ class Heap {
 private:
     // variables for number of vertices and dimension
     vector<entry> H;
-    vector<entry*> H_pointers;
+    // vector<bool> H_pointers;
     int Parent(int i);
     int Left(int i);
     int Right(int i);
     void swap(int a, int b);
     void heap_down(int i);
     void heap_up(int i);
+    // void increase_key(int i, entry key);
 
 public:
     // constructor, always takes in vertices
@@ -90,32 +91,48 @@ void Heap::heap_up(int i) {
 
 void Heap::insert(entry i) {
 
-    // if vertex not in heap, create pointer
-    if (H_pointers.size() <= i.vertex) {
-        // resize array for proper index
-        while (H_pointers.size() <= i.vertex) {
-            H_pointers.push_back(new entry);
-            H_pointers.back() -> vertex = -1;
-            H_pointers.back() -> dist = std::numeric_limits<float>::infinity();
-        }
-
-        // insert into heap
+    // // if vertex not in heap, create pointer
+    // if (H_pointers.size() <= i.vertex) {
+    //
+    //     // insert into heap
+    //     H_pointers.resize(i.vertex + 1, false);
+    //     H_pointers[i.vertex] = true;
+    //     H.push_back(i);
+    //     heap_up(get_size() - 1);
+    // }
+    //
+    // // if vertex in heap, update pointer
+    // else if (H_pointers[i.vertex] == false) {
+    //     H_pointers[i.vertex] = true;
         H.push_back(i);
         heap_up(get_size() - 1);
-
-        // point to new element in heap
-        H_pointers.back() -> vertex = i.vertex;
-        H_pointers.back() -> dist = i.dist;
-    }
-
-    // if vertex in heap, update pointer
-    else if (H_pointers[i.vertex] -> dist > i.dist){
-        cout<<"In heap"<<'\n';
-        H_pointers[i.vertex] -> vertex = i.vertex;
-        H_pointers[i.vertex] -> dist = i.dist;
-    }
+    //
+    // }
+    //
+    // else if (H_pointers[i.vertex] == true) {
+    //     increase_key(get_size() - 1, i);
+    // }
+    //
+    // // insert into heap
+    // // entry n;
+    // // n.dist = std::numeric_limits<float>::infinity();;
+    // // n.vertex = -1;
+    // // H.push_back(n);
 
 }
+
+// void Heap::increase_key(int i, entry key) {
+//     if (key.dist > H[i].dist) {
+//         cout<<"Error: Key is greater than element in H."<<'\n';
+//     }
+//         H[i].dist = key.dist;
+//
+//         while (i > 0 && H[Parent(i)].dist > H[i].dist) {
+//             swap(i, Parent(i));
+//             i = Parent(i);
+//         }
+//
+// }
 
 entry Heap::delete_min() {
     entry min = H[0];
