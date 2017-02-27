@@ -84,15 +84,21 @@ float** Complete_Undirected::generate_graph() {
         verts[k] = new float[n];
 
     if (this->dimension == 0) {
-        // create vertices, build distances for each
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n && i != j; j++) {
-                float dist = this->gen_rand();
+        // // create vertices, build distances for each
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = i + 1; j < n && i != j; j++) {
+        //         float dist = this->gen_rand();
+        //         verts[i][j] = dist;
+        //         verts[j][i] = dist;
+        //     }
+        // }
+        for (int i = 0; i < n; i ++) {
+            for (int j = 0; j < n; j++) {
+                float dist = gen_rand();
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
-
     } else {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
