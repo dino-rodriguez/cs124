@@ -14,7 +14,7 @@
 #include "heap.h"
 #include <sys/time.h>
 #include <unistd.h>
-#include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -163,7 +163,7 @@ float Complete_Undirected::prims() {
 
     // set all vertices distances to infty and prevs to null
     for (int i = 0; i < vertices; i++) {
-        dist[i] = std::numeric_limits<float>::max();
+        dist[i] = std::numeric_limits<float>::infinity();
         prev[i] = -1;
         set[i] = 0;
     }

@@ -11,6 +11,7 @@
 #include <time.h>
 #include <math.h>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -25,6 +26,7 @@ class Heap {
 private:
     // variables for number of vertices and dimension
     vector<entry> H;
+    vector<entry> H_pointers;
     int Parent(int i);
     int Left(int i);
     int Right(int i);
@@ -87,12 +89,34 @@ void Heap::heap_up(int i) {
 }
 
 void Heap::insert(entry i) {
-    H.push_back(i);
-    heap_up(get_size() -1);
+
+    // if vertex not in heap, create pointer
+    if (H_pointers.size() <= i.vertex) {
+
+        entry null_pointer;
+        null_pointer.vertex = -1;
+        null_pointer.dist = std::numeric_limits<float>::infinity();
+
+        // resize array for proper index
+        H_pointers.resize(i.vertex + 1, null_pointer);
+
+        // assign the entry
+        H_pointers[i.vertex] = i;
+
+    }
+
+    // if vertex in heap, update pointer
+    else if (H_pointers[i.vertex].dist > i.dist) {
+        H_pointers[i.vertex] = i; // assign the address of entry
+    }
+    else {
+        H.push_back(i);
+        heap_up(get_size() -1);
+    }
+
 }
 
 entry Heap::delete_min() {
-    int sz = get_size();
     entry min = H[0];
     H[0] = H.back();
     H.pop_back();
