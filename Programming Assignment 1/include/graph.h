@@ -62,9 +62,10 @@ float Complete_Undirected::euclid() {
     for (int i = 0; i < k; i++) {
         p1[i] = this->gen_rand();
         p2[i] = this->gen_rand();
-        sum += pow(p1[i] - p2[i], 2);
+        sum += powf(p1[i] - p2[i], 2);
     }
-    return sqrt(sum);
+    float distance = sqrtf(sum);
+    return distance;
 }
 
 // generate a random number from [0, 1]
@@ -85,26 +86,20 @@ float** Complete_Undirected::generate_graph() {
 
     if (this->dimension == 0) {
         // // create vertices, build distances for each
-        // for (int i = 0; i < n; i++) {
-        //     for (int j = i + 1; j < n && i != j; j++) {
-        //         float dist = this->gen_rand();
-        //         verts[i][j] = dist;
-        //         verts[j][i] = dist;
-        //     }
-        // }
-        for (int i = 0; i < n; i ++) {
-            for (int j = 0; j < n; j++) {
-                float dist = gen_rand();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n && i != j; j++) {
+                float dist = this->gen_rand();
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
+
     } else {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
                 // calculate distance with euclid
-                float dist = this->euclid();
+                float dist = euclid();
                 // assign to edge to both vertices because undirected
                 verts[i][j] = dist;
                 verts[j][i] = dist;
@@ -186,20 +181,16 @@ float Complete_Undirected::prims() {
             }
         }
     }
+    return mst_weight(dist);
+}
+
+float Complete_Undirected::mst_weight(float* dist) {
     float sum = 0;
     for (int i = 0; i < vertices; i++) {
         sum += dist[i];
     }
     return sum;
 }
-
-// float Complete_Undirected::mst_weight(float* dist) {
-//     float sum = 0;
-//     for (int i = 0; i < vertices; i++) {
-//         sum += dist[i];
-//     }
-//     return sum;
-// }
 
 // soley for testing purposes only
 void Complete_Undirected::overwrite(float** A) {

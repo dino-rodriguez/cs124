@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
 	int numpoints = args[1];
 	int numtrials = args[2];
 	int dimension = args[3];
-	cout<<dimension;
 	float sum; 
 	for (int i = 0; i < numtrials; i++) {
 		Complete_Undirected G = Complete_Undirected(numpoints, dimension);
