@@ -26,7 +26,7 @@ class Heap {
 private:
     // variables for number of vertices and dimension
     vector<entry> H;
-    vector<entry> H_pointers;
+    vector<entry*> H_pointers;
     int Parent(int i);
     int Left(int i);
     int Right(int i);
@@ -92,26 +92,27 @@ void Heap::insert(entry i) {
 
     // if vertex not in heap, create pointer
     if (H_pointers.size() <= i.vertex) {
-
-        entry null_pointer;
-        null_pointer.vertex = -1;
-        null_pointer.dist = std::numeric_limits<float>::infinity();
-
         // resize array for proper index
-        H_pointers.resize(i.vertex + 1, null_pointer);
+        while (H_pointers.size() <= i.vertex) {
+            H_pointers.push_back(new entry);
+            H_pointers.back() -> vertex = -1;
+            H_pointers.back() -> dist = std::numeric_limits<float>::infinity();
+        }
 
-        // assign the entry
-        H_pointers[i.vertex] = i;
+        // insert into heap
+        H.push_back(i);
+        heap_up(get_size() - 1);
 
+        // point to new element in heap
+        H_pointers.back() -> vertex = i.vertex;
+        H_pointers.back() -> dist = i.dist;
     }
 
     // if vertex in heap, update pointer
-    else if (H_pointers[i.vertex].dist > i.dist) {
-        H_pointers[i.vertex] = i; // assign the address of entry
-    }
-    else {
-        H.push_back(i);
-        heap_up(get_size() -1);
+    else if (H_pointers[i.vertex] -> dist > i.dist){
+        cout<<"In heap"<<'\n';
+        H_pointers[i.vertex] -> vertex = i.vertex;
+        H_pointers[i.vertex] -> dist = i.dist;
     }
 
 }
