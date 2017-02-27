@@ -148,7 +148,7 @@ float Complete_Undirected::prims() {
     int prev[vertices];
     int set[vertices];
     Heap H;
-    
+
     // Source Vertex
     entry S;
     S.vertex = 0;
@@ -169,7 +169,9 @@ float Complete_Undirected::prims() {
         entry v = H.delete_min();
         set[v.vertex] = 1;
         for (int w = 0; w < vertices; w++) {
-            if (set[w] == 1 || v.vertex == w) continue; 
+            if (set[w] == 1 || v.vertex == w) {
+                continue;
+            }
             if (dist[w] > V[v.vertex][w]) {
                 dist[w] = V[v.vertex][w];
                 prev[w] = v.vertex;
