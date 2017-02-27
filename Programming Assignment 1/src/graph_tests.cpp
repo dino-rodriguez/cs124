@@ -76,38 +76,10 @@ int main(void) {
     // D2F.prims();
 
     // // V = 4, D = 0
-    // Complete_Undirected Z = Complete_Undirected(4, 0);
-    // Z.generate_graph();
-
-    // // initialize the 2-D array
-    // float** A4 = new float* [4];
-    // for(int k = 0; k < 4; k++)
-    //     A4[k] = new float[4];
-    // A4[0][0] = 0;
-    // A4[1][1] = 0;
-    // A4[2][2] = 0;
-    // A4[3][3] = 0;
-
-    // A4[0][1] = 3;
-    // A4[1][0] = 3;
-    // A4[0][2] = 5;
-    // A4[2][0] = 5;
-    // A4[0][3] = 2;
-    // A4[3][0] = 2;
-
-    // A4[1][2] = 1;
-    // A4[2][1] = 1;
-    // A4[1][3] = 1;
-    // A4[3][1] = 1;
-    // A4[2][3] = 2;
-    // A4[3][2] = 2;
-    
-    // Z.overwrite(A4);
-    // Z.print_graph();
-    // Z.prims();
-
-    Complete_Undirected mitz_eat_a_dick = Complete_Undirected(32768, 4);
-    mitz_eat_a_dick.generate_graph();
-    mitz_eat_a_dick.prims();
+    Complete_Undirected Z = Complete_Undirected(4, 0);
+    Z.generate_graph();
+    Z.print_graph();
+    float t = Z.prims();
+    cout<<t<<'\n';
     return 0;
 }
