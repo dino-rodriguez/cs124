@@ -34,13 +34,9 @@ private:
 
 public:
     // constructor, always takes in vertices
-    Heap(void) {
-        std::cout << "Heap constructor called." << '\n';
-    }
+    Heap(void) {}
     // destructor, implicitly called and no arguments
-    ~Heap(void) {
-        std::cout << "Heap deconstructor called." << '\n';
-    }
+    ~Heap(void) {}
     int get_size() {
         return H.size();
     }
@@ -97,7 +93,6 @@ void Heap::insert(entry i) {
 
 entry Heap::delete_min() {
     int sz = get_size();
-    assert(sz > 0);
     entry min = H[0];
     H[0] = H.back();
     H.pop_back();

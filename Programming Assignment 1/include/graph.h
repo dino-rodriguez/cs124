@@ -8,9 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <time.h>
 #include <cmath>
 #include <typeinfo>
+#include <vector>
+#include "heap.h"
+#include <sys/time.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -24,12 +27,16 @@ class Complete_Undirected {
 
     public:
         // constructor, always takes in vertices
-        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL) {
-            std::cout << "Complete_Undirected constructor called." << '\n';
+        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL){
+            // seeding in terms of milliseconds
+            struct timeval t1;
+            gettimeofday(&t1, NULL);
+            srand(t1.tv_usec * t1.tv_sec);
         }
         // destructor, implicitly called and no arguments
         ~Complete_Undirected(void) {
-            std::cout << "Complete_Undirected deconstructor called." << '\n';
+            // ensure that srand is called with a different millisecond seed
+            usleep(1000);
         }
 
         // public methods
@@ -40,7 +47,10 @@ class Complete_Undirected {
         int get_dimension();
         float** get_graph();
         void print_graph();
-        float** prims();
+        float mst_weight(float* dist);
+        float prims();
+        void overwrite(float** A);
+        float confidence_interval();
 };
 
 // calculate euclidean distance of two points
@@ -65,9 +75,6 @@ float Complete_Undirected::gen_rand() {
 
 // generate graph (seeding once to maintain distribution)
 float** Complete_Undirected::generate_graph() {
-    // seed random number generator with current machine time
-    srand(time(NULL));
-
     // number of vertices
     int n = this->vertices;
 
@@ -80,10 +87,12 @@ float** Complete_Undirected::generate_graph() {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
-                verts[i][j] = this->gen_rand();
-                verts[j][i] = this->gen_rand();
+                float dist = this->gen_rand();
+                verts[i][j] = dist;
+                verts[j][i] = dist;
             }
         }
+
     } else {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
@@ -134,6 +143,65 @@ void Complete_Undirected::print_graph() {
 }
 
 // run prims algorithm and return the MST of the graph
-float** Complete_Undirected::prims() {
+float Complete_Undirected::prims() {
+    float dist[vertices];
+    int prev[vertices];
+    int set[vertices];
+    Heap H;
+    
+    // Source Vertex
+    entry S;
+    S.vertex = 0;
+    S.dist = 0;
 
+    // insert source into heap
+    H.insert(S);
+
+    // set all vertices distances to infty and prevs to null
+    for (int i = 0; i < vertices; ++i) {
+        dist[i] = std::numeric_limits<float>::max();
+        prev[i] = -1;
+        set[i] = 0;
+    }
+    dist[S.vertex] = 0;
+
+    while(H.get_size() > 0) {
+        entry v = H.delete_min();
+        set[v.vertex] = 1;
+        for (int w = 0; w < vertices; w++) {
+            if (set[w] == 1 || v.vertex == w) continue; 
+            if (dist[w] > V[v.vertex][w]) {
+                dist[w] = V[v.vertex][w];
+                prev[w] = v.vertex;
+                entry _w;
+                _w.vertex = w;
+                _w.dist = dist[w];
+                H.insert(_w);
+            }
+        }
+    }
+    float sum = 0;
+    for (int i = 0; i < vertices; i++) {
+        sum += dist[i];
+    }
+    return sum;
+}
+
+// float Complete_Undirected::mst_weight(float* dist) {
+//     float sum = 0;
+//     for (int i = 0; i < vertices; i++) {
+//         sum += dist[i];
+//     }
+//     return sum;
+// }
+
+// soley for testing purposes only
+void Complete_Undirected::overwrite(float** A) {
+    V = A;
+}
+
+// function for calculating the confidence interval of predicted edge weights
+float confidence_interval() {
+    for (int i = 0; i < 1; i++)
+    return 0;
 }
