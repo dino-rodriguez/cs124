@@ -16,7 +16,7 @@ using namespace std;
 
 struct entry {
     int vertex;
-    int dist;
+    float dist;
 };
 
 
