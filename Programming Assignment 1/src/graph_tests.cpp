@@ -76,7 +76,7 @@ int main(void) {
     // D2F.prims();
 
     // // V = 4, D = 0
-    Complete_Undirected Z = Complete_Undirected(4, 0);
+    Complete_Undirected Z = Complete_Undirected(512, 2);
     Z.generate_graph();
     Z.print_graph();
     float t = Z.prims();

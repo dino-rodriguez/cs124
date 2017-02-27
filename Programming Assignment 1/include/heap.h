@@ -68,7 +68,7 @@ void Heap::heap_down(int i) {
     int r = Right(i);
     int small = i;
 
-    if (l < get_size() && H[l].dist < H[i].dist) 
+    if (l < get_size() && H[l].dist < H[i].dist)
         small = l;
     if (r < get_size() && H[r].dist < H[small].dist)
         small = r;
@@ -83,7 +83,7 @@ void Heap::heap_up(int i) {
     if (i && H[p].dist > H[i].dist) {
         swap(i, p);
         heap_up(p);
-    } 
+    }
 }
 
 void Heap::insert(entry i) {
@@ -100,4 +100,3 @@ entry Heap::delete_min() {
     return min;
 
 }
-

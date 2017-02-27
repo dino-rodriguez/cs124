@@ -14,6 +14,7 @@
 #include "heap.h"
 #include <sys/time.h>
 #include <unistd.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -62,14 +63,16 @@ float Complete_Undirected::euclid() {
     for (int i = 0; i < k; i++) {
         p1[i] = this->gen_rand();
         p2[i] = this->gen_rand();
-        sum += pow(p1[i] - p2[i], 2);
+        float diff = p2[i] - p1[i];
+        sum += powf(diff, 2.0);
     }
-    return sqrt(sum);
+    float distance = sqrt(sum);
+    return distance;
 }
 
 // generate a random number from [0, 1]
 float Complete_Undirected::gen_rand() {
-    double r = ((double)rand() / RAND_MAX);
+    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
     return r;
 }
 
@@ -85,31 +88,26 @@ float** Complete_Undirected::generate_graph() {
 
     if (this->dimension == 0) {
         // // create vertices, build distances for each
-        // for (int i = 0; i < n; i++) {
-        //     for (int j = i + 1; j < n && i != j; j++) {
-        //         float dist = this->gen_rand();
-        //         verts[i][j] = dist;
-        //         verts[j][i] = dist;
-        //     }
-        // }
-        for (int i = 0; i < n; i ++) {
-            for (int j = 0; j < n; j++) {
-                float dist = gen_rand();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n && i != j; j++) {
+                float dist = this->gen_rand();
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
+
     } else {
         // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
                 // calculate distance with euclid
-                float dist = this->euclid();
+                float dist = euclid();
                 // assign to edge to both vertices because undirected
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
+
     }
     this->V = verts;
     return V;
@@ -153,7 +151,7 @@ float Complete_Undirected::prims() {
     float dist[vertices];
     int prev[vertices];
     int set[vertices];
-    Heap H;
+    Heap H = Heap();
 
     // Source Vertex
     entry S;
@@ -164,7 +162,7 @@ float Complete_Undirected::prims() {
     H.insert(S);
 
     // set all vertices distances to infty and prevs to null
-    for (int i = 0; i < vertices; ++i) {
+    for (int i = 0; i < vertices; i++) {
         dist[i] = std::numeric_limits<float>::max();
         prev[i] = -1;
         set[i] = 0;
@@ -178,7 +176,7 @@ float Complete_Undirected::prims() {
             if (set[w] == 1 || v.vertex == w) {
                 continue;
             }
-            if (dist[w] > V[v.vertex][w]) {
+            else if (dist[w] > V[v.vertex][w]) {
                 dist[w] = V[v.vertex][w];
                 prev[w] = v.vertex;
                 entry _w;
@@ -188,20 +186,16 @@ float Complete_Undirected::prims() {
             }
         }
     }
+    return mst_weight(dist);
+}
+
+float Complete_Undirected::mst_weight(float* dist) {
     float sum = 0;
     for (int i = 0; i < vertices; i++) {
         sum += dist[i];
     }
     return sum;
 }
-
-// float Complete_Undirected::mst_weight(float* dist) {
-//     float sum = 0;
-//     for (int i = 0; i < vertices; i++) {
-//         sum += dist[i];
-//     }
-//     return sum;
-// }
 
 // soley for testing purposes only
 void Complete_Undirected::overwrite(float** A) {
