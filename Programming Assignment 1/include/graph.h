@@ -62,9 +62,10 @@ float Complete_Undirected::euclid() {
     for (int i = 0; i < k; i++) {
         p1[i] = this->gen_rand();
         p2[i] = this->gen_rand();
-        sum += powf(p1[i] - p2[i], 2);
+        float diff = p2[i] - p1[i];
+        sum += powf(diff, 2.0);
     }
-    float distance = sqrtf(sum);
+    float distance = sqrt(sum);
     return distance;
 }
 
@@ -105,6 +106,7 @@ float** Complete_Undirected::generate_graph() {
                 verts[j][i] = dist;
             }
         }
+
     }
     this->V = verts;
     return V;
