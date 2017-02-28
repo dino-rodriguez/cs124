@@ -49,7 +49,7 @@ all: clean randmst graph_tests heap_tests
 
 # Make individual files
 randmst: $(ODIR)/randmst.o
-	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 graph_tests: $(ODIR)/graph_tests.o
 	$(CC) -o $(BDIR)/$@ $^ $(CFLAGS) $(LIBS)

@@ -57,7 +57,7 @@ class Complete_Undirected {
         void overwrite(float** A);
 };
 
-
+// function to calculate cutoff threshold for edge throwaway
 void Complete_Undirected::dim_kn() {
 
     float y_gen[4];
@@ -76,7 +76,7 @@ void Complete_Undirected::dim_kn() {
 
     // standard set for dimension 0
     float variance = 1.0 / 12; // variance for [0, 1] uniform
-    float z = 5; // for 97.5% confidence interval, because we only use upper half
+    float z = 1.96; // for 97.5% confidence interval, because we only use upper half
     float std_dev = sqrt(variance); // std_dev for [0, 1] uniform
     float avg_edge = y_gen[0]/(vertices - 1); // estimated mean edge
 
@@ -188,7 +188,6 @@ float** Complete_Undirected::generate_graph(bool remove_flag) {
                 verts[j][i] = dist;
             }
         }
-cout<<"edges removed "<<sum<<'\n';
     }
 
     this->V = verts;
@@ -256,13 +255,17 @@ float Complete_Undirected::prims() {
     }
     dist[S.vertex] = 0;
 
+    // while the heap is not empty
     while(H.get_size() > 0) {
         entry v = H.delete_min();
         set[v.vertex] = 1;
+        // update all edges to have the new minimum edge weight
         for (int w = 0; w < vertices; w++) {
+            // if in current tree, disregard
             if (set[w] == 1 || v.vertex == w || V[v.vertex][w] == -1) {
                 continue;
             }
+            // else consider if smaller edge than stored in heap
             else if (dist[w] > V[v.vertex][w]) {
                 dist[w] = V[v.vertex][w];
                 prev[w] = v.vertex;
@@ -277,6 +280,7 @@ float Complete_Undirected::prims() {
 }
 
 
+// return the weight of the mst
 float Complete_Undirected::mst_weight(float* dist) {
     float sum = 0;
     for (int i = 0; i < vertices; i++) {

@@ -22,10 +22,10 @@ int* checkArgs(int argc, char*argv[])
 			int num;
 
 			// checks that each argument is an int
-			//if (!(arg << num) && arg > 0) {
-				//cout<<argv[i]<<" is not a number\n";
-				//exit(0);
-			//}
+			if (!(arg << num) && arg > 0) {
+				cout<<argv[i]<<" is not a number\n";
+				exit(0);
+			}
 			if (i == 4 && arg > 4) {
 				cout<<"The dimension must be between 0 and 4 (inclusive)!"<<'\n';
 				exit(0);
@@ -38,17 +38,17 @@ int* checkArgs(int argc, char*argv[])
 
 int main(int argc, char *argv[])
 {
-
-	// int N[11] = {128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072};
 	int* args = checkArgs(argc, argv);
 	int flag = args[0];
 	int numpoints = args[1];
 	int numtrials = args[2];
 	int dimension = args[3];
 	float sum = 0;
+
+	// run randmst with a certain number of trials
 	for (int i = 0; i < numtrials; i++) {
 		Complete_Undirected G = Complete_Undirected(numpoints, dimension);
-		G.generate_graph(true);
+		G.generate_graph(false);
 		sum += G.prims();
 	}
 	float avg = sum/numtrials;
