@@ -15,6 +15,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include <limits>
+#include <random>
 
 using namespace std;
 
@@ -41,9 +42,13 @@ class Complete_Undirected {
         }
 
         // public methods
+        float dim0_kn();
+        float dim2_kn();
+        float dim3_kn();
+        float dim4_kn();
         float euclid(float p1[], float p2[]);
         float gen_rand();
-        float** generate_graph();
+        float** generate_graph(bool remove_flag);
         int get_vertices();
         int get_dimension();
         float** get_graph();
@@ -51,8 +56,21 @@ class Complete_Undirected {
         float mst_weight(float* dist);
         float prims();
         void overwrite(float** A);
-        float confidence_interval();
 };
+
+// the 4 edge threshold functions, based on growth functions of avg weight
+float Complete_Undirected::dim0_kn() {
+    // equation modeling weight
+    float y = float(6 * vertices)/(5 * vertices + 1);
+
+    // calculate stats for 95% confidence interval
+    int dof = vertices - 1;
+    double t_value = std::student_t_distribution <double> distribution(dof);
+    avg_edge = y/(vertices - 1);
+    upper_confidence_interval = avg_edge +
+    return y;
+}
+
 
 // calculate euclidean distance of two points
 float Complete_Undirected::euclid(float p1[], float p2[]) {
@@ -73,7 +91,8 @@ float Complete_Undirected::gen_rand() {
 }
 
 // generate graph (seeding once to maintain distribution)
-float** Complete_Undirected::generate_graph() {
+// takes in flag to consider removing edges
+float** Complete_Undirected::generate_graph(bool remove_flag) {
     // number of vertices
     int n = this->vertices;
 
@@ -87,6 +106,11 @@ float** Complete_Undirected::generate_graph() {
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
                 float dist = this->gen_rand();
+
+                // consider removing edges
+                if (remove_flag == true && dist > dim0_kn()) {
+
+                }
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
@@ -207,10 +231,4 @@ float Complete_Undirected::mst_weight(float* dist) {
 // soley for testing purposes only
 void Complete_Undirected::overwrite(float** A) {
     V = A;
-}
-
-// function for calculating the confidence interval of predicted edge weights
-float confidence_interval() {
-    for (int i = 0; i < 1; i++)
-    return 0;
 }

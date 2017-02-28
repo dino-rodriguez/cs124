@@ -36,7 +36,7 @@ int main(void) {
     // // cout<<"D4\n";
     // // D4.print_graph();
 
-    // D1.build_MST();
+    // // testing a number of different custom trees
 
     // V = 2, D = 0
     // Complete_Undirected G = Complete_Undirected(2, 0);
@@ -76,10 +76,10 @@ int main(void) {
     // D2F.prims();
 
     // // V = 4, D = 0
-    Complete_Undirected Z = Complete_Undirected(512, 2);
-    Z.generate_graph();
-    Z.print_graph();
-    float t = Z.prims();
-    cout<<t<<'\n';
-    return 0;
+    // Complete_Undirected Z = Complete_Undirected(512, 2);
+    // Z.generate_graph();
+    // Z.print_graph();
+    // float t = Z.prims();
+    // cout<<t<<'\n';
+    // return 0;
 }
