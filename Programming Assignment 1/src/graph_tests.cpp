@@ -6,7 +6,7 @@ using namespace std;
 
 int main(void) {
     // // generate graphs of each dimension
-    // Complete_Undirected D0 = Complete_Undirected(10, 0);
+    Complete_Undirected D0 = Complete_Undirected(10, 0);
     // Complete_Undirected D1 = Complete_Undirected(10, 1);
     // Complete_Undirected D2 = Complete_Undirected(10, 2);
     // Complete_Undirected D3 = Complete_Undirected(10, 3);
@@ -81,5 +81,15 @@ int main(void) {
     // Z.print_graph();
     // float t = Z.prims();
     // cout<<t<<'\n';
-    // return 0;
+
+    // tests for edge reduction
+    Complete_Undirected D2 = Complete_Undirected(512, 2);
+    Complete_Undirected D3 = Complete_Undirected(512, 3);
+    Complete_Undirected D4 = Complete_Undirected(512, 4);
+
+    D2.generate_graph(true);
+    D3.generate_graph(true);
+    D4.generate_graph(true);
+
+    return 0;
 }

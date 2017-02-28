@@ -19,6 +19,7 @@
 
 using namespace std;
 
+
 // class for complete and undirected graphs
 class Complete_Undirected {
 
@@ -26,10 +27,11 @@ class Complete_Undirected {
         // variables for number of vertices and dimension
         int vertices, dimension;
         float** V;
+        float kn;
 
     public:
         // constructor, always takes in vertices
-        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL){
+        Complete_Undirected(int v = 0, int d = 0) : vertices(v), dimension(d), V(NULL), kn(-1){
             // seeding in terms of milliseconds
             struct timeval t1;
             gettimeofday(&t1, NULL);
@@ -42,10 +44,7 @@ class Complete_Undirected {
         }
 
         // public methods
-        float dim0_kn();
-        float dim2_kn();
-        float dim3_kn();
-        float dim4_kn();
+        void dim_kn();
         float euclid(float p1[], float p2[]);
         float gen_rand();
         float** generate_graph(bool remove_flag);
@@ -58,17 +57,54 @@ class Complete_Undirected {
         void overwrite(float** A);
 };
 
-// the 4 edge threshold functions, based on growth functions of avg weight
-float Complete_Undirected::dim0_kn() {
-    // equation modeling weight
-    float y = float(6 * vertices)/(5 * vertices + 1);
 
-    // calculate stats for 95% confidence interval
-    int dof = vertices - 1;
-    double t_value = std::student_t_distribution <double> distribution(dof);
-    avg_edge = y/(vertices - 1);
-    upper_confidence_interval = avg_edge +
-    return y;
+void Complete_Undirected::dim_kn() {
+
+    float y_gen[4];
+
+    // equation modeling weight for dimension 0
+    y_gen[0] = float(6 * vertices)/(5 * vertices + 1);
+
+    // equation modeling weight for dimension 2
+    y_gen[1] = (2.0 * sqrt(vertices)) / 3;
+
+    // equation modeling weight for dimension 3
+    y_gen[2] = 0;
+
+    // equation modeling weight for dimension 4
+    y_gen[3] = 0;
+
+    // standard set for dimension 0
+    float variance = 1.0 / 12; // variance for [0, 1] uniform
+    float z = 5; // for 97.5% confidence interval, because we only use upper half
+    float std_dev = sqrt(variance); // std_dev for [0, 1] uniform
+    float avg_edge = y_gen[0]/(vertices - 1); // estimated mean edge
+
+    // calculate std deviation for higher dimensions
+    if (dimension != 0) {
+
+        // calcluate proper average for dimension
+        avg_edge = y_gen[dimension - 1]/(vertices - 1);
+
+        float term1 = 1;
+        float term2 = 1;
+
+        // expansion of variance for multiplying random variables
+        for (int i = 0; i < dimension; i++) {
+            term1 = term1 * (variance + powf(avg_edge, 2.0));
+            term2 = term2 * powf(avg_edge, 2.0);
+        }
+
+        variance = term1 - term2;
+        std_dev = sqrt(variance);
+    }
+
+    // return upper confidence interval
+    //float upper_confidence = avg_edge + z * (std_dev/sqrt(vertices));
+    float upper_confidence = avg_edge * 4;
+    cout<<"avg " <<upper_confidence<<'\n';
+    // assign to private var
+    kn = upper_confidence;
 }
 
 
@@ -84,17 +120,20 @@ float Complete_Undirected::euclid(float p1[], float p2[]) {
     return distance;
 }
 
+
 // generate a random number from [0, 1]
 float Complete_Undirected::gen_rand() {
     float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
     return r;
 }
 
+
 // generate graph (seeding once to maintain distribution)
 // takes in flag to consider removing edges
 float** Complete_Undirected::generate_graph(bool remove_flag) {
     // number of vertices
     int n = this->vertices;
+    dim_kn(); // set edge cutoff threshold
 
     // initialize the 2-D array
     float** verts = new float* [n];
@@ -105,12 +144,14 @@ float** Complete_Undirected::generate_graph(bool remove_flag) {
         // // create vertices, build distances for each
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
+
                 float dist = this->gen_rand();
 
                 // consider removing edges
-                if (remove_flag == true && dist > dim0_kn()) {
-
+                if (remove_flag == true && dist > kn) {
+                    dist = -1;
                 }
+
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
@@ -129,35 +170,49 @@ float** Complete_Undirected::generate_graph(bool remove_flag) {
         }
 
         // build distances for each edge
+        int sum = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n && i != j; j++) {
+
                 // calculate distance with euclid
                 float dist = euclid(nodes[i], nodes[j]);
+
+                // consider removing edges
+                if (remove_flag == true && dist > kn) {
+                    sum = sum + 1;
+                    dist = -1;
+                }
+
                 // assign to edge to both vertices because undirected
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
         }
-
+cout<<"edges removed "<<sum<<'\n';
     }
+
     this->V = verts;
     return V;
 }
+
 
 // return the vertice count of the graph
 int Complete_Undirected::get_vertices() {
     return this->vertices;
 }
 
+
 // return the dimension of the graph
 int Complete_Undirected::get_dimension() {
     return this->dimension;
 }
 
+
 // return the graph
 float** Complete_Undirected::get_graph() {
     return this->V;
 }
+
 
 // print the graph
 void Complete_Undirected::print_graph() {
@@ -176,6 +231,7 @@ void Complete_Undirected::print_graph() {
         }
     }
 }
+
 
 // run prims algorithm and return the MST of the graph
 float Complete_Undirected::prims() {
@@ -204,7 +260,7 @@ float Complete_Undirected::prims() {
         entry v = H.delete_min();
         set[v.vertex] = 1;
         for (int w = 0; w < vertices; w++) {
-            if (set[w] == 1 || v.vertex == w) {
+            if (set[w] == 1 || v.vertex == w || V[v.vertex][w] == -1) {
                 continue;
             }
             else if (dist[w] > V[v.vertex][w]) {
@@ -220,6 +276,7 @@ float Complete_Undirected::prims() {
     return mst_weight(dist);
 }
 
+
 float Complete_Undirected::mst_weight(float* dist) {
     float sum = 0;
     for (int i = 0; i < vertices; i++) {
@@ -227,6 +284,7 @@ float Complete_Undirected::mst_weight(float* dist) {
     }
     return sum;
 }
+
 
 // soley for testing purposes only
 void Complete_Undirected::overwrite(float** A) {

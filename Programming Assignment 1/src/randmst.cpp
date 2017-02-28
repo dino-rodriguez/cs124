@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	float sum = 0;
 	for (int i = 0; i < numtrials; i++) {
 		Complete_Undirected G = Complete_Undirected(numpoints, dimension);
-		G.generate_graph();
+		G.generate_graph(true);
 		sum += G.prims();
 	}
 	float avg = sum/numtrials;
