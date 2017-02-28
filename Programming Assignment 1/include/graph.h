@@ -127,12 +127,7 @@ float** Complete_Undirected::generate_graph(bool remove_flag) {
             for (int j = i + 1; j < n && i != j; j++) {
 
                 float dist = this->gen_rand();
-
-                // consider removing edges
-                if (remove_flag == true && dist > kn) {
-                    dist = -1;
-                }
-
+                
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
