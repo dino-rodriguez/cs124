@@ -69,38 +69,19 @@ void Complete_Undirected::dim_kn() {
     y_gen[1] = (2.0 * sqrt(vertices)) / 3;
 
     // equation modeling weight for dimension 3
-    y_gen[2] = 0;
+    y_gen[2] = (5.0/6) * powf(vertices, 0.64);
 
     // equation modeling weight for dimension 4
-    y_gen[3] = 0;
+    y_gen[3] = (5.0/6) * powf(vertices, 0.73);
 
-    // standard set for dimension 0
-    float variance = 1.0 / 12; // variance for [0, 1] uniform
-    float z = 1.96; // for 97.5% confidence interval, because we only use upper half
-    float std_dev = sqrt(variance); // std_dev for [0, 1] uniform
     float avg_edge = y_gen[0]/(vertices - 1); // estimated mean edge
 
     // calculate std deviation for higher dimensions
     if (dimension != 0) {
-
         // calcluate proper average for dimension
         avg_edge = y_gen[dimension - 1]/(vertices - 1);
-
-        float term1 = 1;
-        float term2 = 1;
-
-        // expansion of variance for multiplying random variables
-        for (int i = 0; i < dimension; i++) {
-            term1 = term1 * (variance + powf(avg_edge, 2.0));
-            term2 = term2 * powf(avg_edge, 2.0);
-        }
-
-        variance = term1 - term2;
-        std_dev = sqrt(variance);
     }
 
-    // return upper confidence interval
-    //float upper_confidence = avg_edge + z * (std_dev/sqrt(vertices));
     float upper_confidence = avg_edge * 4;
     cout<<"avg " <<upper_confidence<<'\n';
     // assign to private var

@@ -21,11 +21,6 @@ int* checkArgs(int argc, char*argv[])
 			int arg = atoi(argv[i]);
 			int num;
 
-			// checks that each argument is an int
-			if (!(arg << num) && arg > 0) {
-				cout<<argv[i]<<" is not a number\n";
-				exit(0);
-			}
 			if (i == 4 && arg > 4) {
 				cout<<"The dimension must be between 0 and 4 (inclusive)!"<<'\n';
 				exit(0);
@@ -48,7 +43,7 @@ int main(int argc, char *argv[])
 	// run randmst with a certain number of trials
 	for (int i = 0; i < numtrials; i++) {
 		Complete_Undirected G = Complete_Undirected(numpoints, dimension);
-		G.generate_graph(false);
+		G.generate_graph(true);
 		sum += G.prims();
 	}
 	float avg = sum/numtrials;
