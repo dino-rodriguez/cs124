@@ -178,7 +178,6 @@ float Complete_Undirected::prims() {
 
     while(H.get_size() > 0) {
         entry v = H.delete_min();
-        std::cout << H.get_size() << '\n';
         set[v.vertex] = 1;
         for (int w = 0; w < vertices; w++) {
             if (set[w] == 1 || v.vertex == w) {
