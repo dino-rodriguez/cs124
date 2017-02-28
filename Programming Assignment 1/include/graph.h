@@ -83,7 +83,6 @@ void Complete_Undirected::dim_kn() {
     }
 
     float upper_confidence = avg_edge * 4;
-    cout<<"avg " <<upper_confidence<<'\n';
     // assign to private var
     kn = upper_confidence;
 }
@@ -127,7 +126,7 @@ float** Complete_Undirected::generate_graph(bool remove_flag) {
             for (int j = i + 1; j < n && i != j; j++) {
 
                 float dist = this->gen_rand();
-                
+
                 verts[i][j] = dist;
                 verts[j][i] = dist;
             }
