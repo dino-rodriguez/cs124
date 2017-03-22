@@ -1,6 +1,7 @@
 package Main;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by dinorodriguez on 3/19/17.
@@ -21,11 +22,30 @@ public class MatrixMultiplication {
         // fields
         private int[][] M1;
         private int[][] M2;
+        private int[][] M3;
+        private int[][] M4;
+        private int[][] M5;
+        private int[][] M6;
+        private int[][] M7;
+        private int[][] M8;
 
-        // constructor
+        // constructor 1
         public Matrices(int[][] A, int[][] B) {
             this.M1 = A;
             this.M2 = B;
+        }
+
+        // constructor
+        public Matrices(int[][] A, int[][] B, int[][] C, int[][] D,
+                        int[][] E, int[][] F, int[][] G, int[][] H) {
+            this.M1 = A;
+            this.M2 = B;
+            this.M3 = C;
+            this.M4 = D;
+            this.M5 = E;
+            this.M6 = F;
+            this.M7 = G;
+            this.M8 = H;
         }
 
         // methods
@@ -38,6 +58,37 @@ public class MatrixMultiplication {
         public int[][] getM2() {
             return M2;
         }
+
+        // get matrix 3
+        public int[][] getM3() {
+            return M3;
+        }
+
+        // get matrix 4
+        public int[][] getM4() {
+            return M4;
+        }
+
+        // get matrix 5
+        public int[][] getM5() {
+            return M5;
+        }
+
+        // get matrix 6
+        public int[][] getM6() {
+            return M6;
+        }
+
+        // get matrix 7
+        public int[][] getM7() {
+            return M7;
+        }
+
+        // get matrix 8
+        public int[][] getM8() {
+            return M8;
+        }
+
     }
 
     // methods
@@ -211,20 +262,21 @@ public class MatrixMultiplication {
         return new Matrices(A, B);
     }
 
-    // standard matrix multiplication (given two matrices)
+    // hybrid matrix multiplication (given two matrices)
     public int[][] multiply(Matrices M) {
 
         // two matrices to multiply
         int[][] A = M.getM1();
         int[][] B = M.getM2();
-        int[][] C = new int[this.dimension][this.dimension];
+        int dim = A[0].length;
+        int[][] C = new int[dim][dim];
 
         // calculate output matrix
         int entry;
-        for(int i = 0; i < this.dimension; i++) {
-            for (int j = 0; j < this.dimension; j++) {
+        for(int i = 0; i < dim; i++) {
+            for (int j = 0; j < dim; j++) {
                 entry = 0;
-                for (int k = 0; k < this.dimension; k++) {
+                for (int k = 0; k < dim; k++) {
                     entry = entry + A[i][k] * B[k][j];
                 }
                 C[i][j] = entry;
@@ -239,11 +291,12 @@ public class MatrixMultiplication {
         // two matrices to add
         int[][] A = M.getM1();
         int[][] B = M.getM2();
-        int[][] C = new int[this.dimension][this.dimension];
+        int dim = A[0].length;
+        int[][] C = new int[dim][dim];
 
         // calculate output matrix
-        for (int i = 0; i < this.dimension; i++) {
-            for (int j = 0; j < this.dimension; j++) {
+        for (int i = 0; i < dim; i++) {
+            for (int j = 0; j < dim; j++) {
                 C[i][j] = A[i][j] + B[i][j];
             }
         }
@@ -256,11 +309,12 @@ public class MatrixMultiplication {
         // two matrices to add
         int[][] A = M.getM1();
         int[][] B = M.getM2();
-        int[][] C = new int[this.dimension][this.dimension];
+        int dim = A[0].length;
+        int[][] C = new int[dim][dim];
 
         // calculate output matrix
-        for (int i = 0; i < this.dimension; i++) {
-            for (int j = 0; j < this.dimension; j++) {
+        for (int i = 0; i < dim; i++) {
+            for (int j = 0; j < dim; j++) {
                 C[i][j] = A[i][j] - B[i][j];
             }
         }
@@ -269,8 +323,8 @@ public class MatrixMultiplication {
 
     }
 
-    // standard matrix multiplication (given a file)
-    public void standard(String filename) {
+    // hybrid matrix multiplication (given a file)
+    public void hybrid(String filename, int flag) {
 
         BufferedWriter b_writer = null;
         FileWriter f_writer = null;
@@ -282,8 +336,17 @@ public class MatrixMultiplication {
             f_writer = new FileWriter(filename + "out");
             b_writer = new BufferedWriter(f_writer);
 
-            // calculate output matrix
-            int[][] C = multiply(M);
+            int[][] C = new int[this.dimension][this.dimension];
+
+            // calculate output matrix with either hybrid or strassens
+            if (flag == 0) {
+                C = multiply(M);
+            }
+            else {
+                C = strassens(M, this.dimension);
+            }
+
+            // write to output
             for (int i = 0; i < this.dimension; i++) {
                 for (int j = 0; j < this.dimension; j++) {
                     b_writer.write(Integer.toString(C[i][j]));
@@ -314,56 +377,84 @@ public class MatrixMultiplication {
         }
     }
 
+    // chunk matrices for strassens
+    public Matrices chunk(Matrices M, int n) {
+
+        // matrices to multiply
+        int[][] M1 = M.getM1(); // array to buffer matrix A
+        int[][] M2 = M.getM2(); // array to buffer matrix B
+
+        // declare open matrices
+        int[][] A = new int[n/2][n/2];
+        int[][] B = new int[n/2][n/2];
+        int[][] C = new int[n/2][n/2];
+        int[][] D = new int[n/2][n/2];
+        int[][] E = new int[n/2][n/2];
+        int[][] F = new int[n/2][n/2];
+        int[][] G = new int[n/2][n/2];
+        int[][] H = new int[n/2][n/2];
+
+        // chunk matrices
+        for (int i = 0; i < n/2; i++) {
+            for (int j = 0; j < n/2; j++) {
+                A[i][j] = M1[i][j];
+                B[i][j] = M1[i][j*2];
+                C[i][j] = M1[i*2][j];
+                D[i][j] = M1[i*2][j*2];
+                E[i][j] = M2[i][j];
+                F[i][j] = M2[i][j*2];
+                G[i][j] = M2[i*2][j];
+                H[i][j] = M2[i*2][j*2];
+            }
+        }
+        return new Matrices(A, B, C, D, E, F, G, H);
+    }
+
     // strassen's matrix multiplication
-    public void strassens(String filename) {
-        BufferedWriter b_writer = null;
-        FileWriter f_writer = null;
-
-        // read matrix into arrays
-        Matrices M = readfile(filename);
-
-        int[][] A = M.getM1(); // array to buffer matrix A
-        int[][] B = M.getM2(); // array to buffer matrix B
-
-
-        try {
-            // create classes
-            f_writer = new FileWriter(filename + "out");
-            b_writer = new BufferedWriter(f_writer);
-
-            // calculate output matrix
-            int entry;
-            for(int i = 0; i < this.dimension; i++) {
-                for (int j = 0; j < this.dimension; j++) {
-                    entry = 0;
-                    for (int k = 0; k < this.dimension; k++) {
-                        entry = entry + A[i][k] * B[k][j];
-                    }
-                    b_writer.write(Integer.toString(entry));
-                    b_writer.newLine();
-                }
-            }
-        }
-        catch(IOException ex1) {
-            ex1.printStackTrace();
+    public int[][] strassens(Matrices M, int n) {
+        // base case
+        if (n == 1) {
+            return multiply(M);
         }
 
-        // close instances of readers
-        finally {
+        // get chunk matrices
+        Matrices chunked = chunk(M, n);
+        int[][] A = chunked.getM1();
+        int[][] B = chunked.getM2();
+        int[][] C = chunked.getM3();
+        int[][] D = chunked.getM4();
+        int[][] E = chunked.getM5();
+        int[][] F = chunked.getM6();
+        int[][] G = chunked.getM7();
+        int[][] H = chunked.getM8();
 
-            try {
-                if (b_writer != null) {
-                    b_writer.close();
-                }
-                if (f_writer != null) {
-                    f_writer.close();
-                }
-            }
+        // recursively call strassens
+        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2);
+        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2);
+        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2);
+        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2);
+        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2);
+        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2);
+        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2);
 
-            catch(IOException ex2) {
-                ex2.printStackTrace();
+        // get new matrix values
+        int[][] AE_BG = subtract(new Matrices(add(new Matrices(P5, P4)), add(new Matrices(P2, P6))));
+        int[][] AF_BH = add(new Matrices(P1, P2));
+        int[][] CE_DG = add(new Matrices(P3, P4));
+        int[][] CF_DH = subtract(new Matrices(add(new Matrices(P5, P1)), subtract(new Matrices(P3, P7))));
+
+        // get final matrix
+        int [][] result = new int[n][n];
+        for (int i = 0; i < n/2; i++) {
+            for (int j = 0; j < n/2; j++) {
+                result[i][j] = AE_BG[i][j];
+                result[i*2][j] = CE_DG[i][j];
+                result[i][j*2] = AF_BH[i][j];
+                result[i*2][j*2] = CF_DH[i][j];
             }
         }
+
+        return result;
     }
 
     // set dimension
