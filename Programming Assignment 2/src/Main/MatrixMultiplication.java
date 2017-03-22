@@ -1,6 +1,7 @@
 package Main;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -398,13 +399,13 @@ public class MatrixMultiplication {
         for (int i = 0; i < n/2; i++) {
             for (int j = 0; j < n/2; j++) {
                 A[i][j] = M1[i][j];
-                B[i][j] = M1[i][j*2];
-                C[i][j] = M1[i*2][j];
-                D[i][j] = M1[i*2][j*2];
+                B[i][j] = M1[i][j+(n/2)];
+                C[i][j] = M1[i+(n/2)][j];
+                D[i][j] = M1[i+(n/2)][j+(n/2)];
                 E[i][j] = M2[i][j];
-                F[i][j] = M2[i][j*2];
-                G[i][j] = M2[i*2][j];
-                H[i][j] = M2[i*2][j*2];
+                F[i][j] = M2[i][j+(n/2)];
+                G[i][j] = M2[i+(n/2)][j];
+                H[i][j] = M2[i+(n/2)][j+(n/2)];
             }
         }
         return new Matrices(A, B, C, D, E, F, G, H);
@@ -442,15 +443,15 @@ public class MatrixMultiplication {
         int[][] AF_BH = add(new Matrices(P1, P2));
         int[][] CE_DG = add(new Matrices(P3, P4));
         int[][] CF_DH = subtract(new Matrices(add(new Matrices(P5, P1)), subtract(new Matrices(P3, P7))));
-
+//        System.out.println(Arrays.deepToString(AE_BG));
         // get final matrix
         int [][] result = new int[n][n];
         for (int i = 0; i < n/2; i++) {
             for (int j = 0; j < n/2; j++) {
                 result[i][j] = AE_BG[i][j];
-                result[i*2][j] = CE_DG[i][j];
-                result[i][j*2] = AF_BH[i][j];
-                result[i*2][j*2] = CF_DH[i][j];
+                result[i+(n/2)][j] = CE_DG[i][j];
+                result[i][j+(n/2)] = AF_BH[i][j];
+                result[i+(n/2)][j+(n/2)] = CF_DH[i][j];
             }
         }
 
