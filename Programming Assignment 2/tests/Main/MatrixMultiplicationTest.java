@@ -161,23 +161,21 @@ class MatrixMultiplicationTest {
 
         // 4 x 4 matrix
         String[][] A = {
-                {"1", "2", "6", "10"},
-                {"3", "4", "9", "4"},
-                {"5", "6", "0", "4"},
-                {"3", "4", "9", "4"}
+                {"1", "2"},
+                {"3", "4"}
         };
 
-        MatrixMultiplication M4 = new MatrixMultiplication(4);
+        MatrixMultiplication M4 = new MatrixMultiplication(2);
 
         // return 0 and print matrix inputs
-        System.out.println("4 x 4 Inputs: \n");
-        assert(M4.makeFile(A, A, "M4") == 0);
-        M4.printfile("M4");
+        System.out.println("2 x 2 Inputs: \n");
+        assert(M4.makeFile(A, A, "M2") == 0);
+        M4.printfile("M2");
         System.out.println('\n');
 
         // outputs
-        M4.hybrid("M4", 1);
-        M4.printfile("M4out");
+        M4.hybrid("M2", 1);
+        M4.printfile("M2out");
 
         // 512 by 512 matrix
         String[][] D = new String[512][512];

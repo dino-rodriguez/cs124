@@ -18,24 +18,24 @@
       <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.application.usages.xml" />
       <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/stubIndex.xml" />
       <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/window.manager.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/node-shell/bash.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/models/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/public/stylesheets/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/routes/users.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/routes/wiki.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/test/itsalive.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/test/page.model.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/addpage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/editpage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/error.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/layout.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/userlist.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/userpages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/wikipage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/node-shell/bash.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/models/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/public/stylesheets/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/routes/users.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/routes/wiki.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/test/itsalive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/test/page.model.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/addpage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/editpage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/error.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/layout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/userlist.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/userpages.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../workshops/wikiTest/views/wikipage.html" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +62,8 @@
       <file leaf-file-name="MatrixMultiplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
+            <state relative-caret-position="199">
+              <caret line="444" column="0" lean-forward="true" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
@@ -74,9 +74,6 @@
                 <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-                <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-                <element signature="e#13360#13361#0" expanded="true" />
-                <element signature="e#13422#13423#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,8 +82,8 @@
       <file leaf-file-name="MatrixMultiplicationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="239">
+              <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
                 <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
                 <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
@@ -155,7 +152,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -188,8 +184,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -573,34 +570,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 54m 08s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 43m 51s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 01s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 44m 42s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 16s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 47m 02s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 56s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 47m 15s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 56m 23s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 48m 43s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 57m 28s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 54m 19s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 57m 47s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 57m 21s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 58m 04s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 57m 49s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 48s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 18h 58m 16s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 54s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 19h 00m 59s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -655,6 +652,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5940">
+          <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
+            <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -667,9 +693,6 @@
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13360#13361#0" expanded="true" />
-            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -699,9 +722,6 @@
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13360#13361#0" expanded="true" />
-            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,9 +751,6 @@
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13360#13361#0" expanded="true" />
-            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,9 +780,6 @@
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13360#13361#0" expanded="true" />
-            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -809,8 +823,8 @@
     <entry file="file://$PROJECT_DIR$/M512" />
     <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="239">
+          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
           <folding>
             <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
             <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
@@ -820,8 +834,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
+        <state relative-caret-position="199">
+          <caret line="444" column="0" lean-forward="true" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
@@ -832,9 +846,6 @@
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13360#13361#0" expanded="true" />
-            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
