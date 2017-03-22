@@ -394,7 +394,6 @@ public class MatrixMultiplication {
         int[][] F = new int[n/2][n/2];
         int[][] G = new int[n/2][n/2];
         int[][] H = new int[n/2][n/2];
-        System.out.println(Arrays.deepToString(C));
 
         // chunk matrices
         for (int i = 0; i < n/2; i++) {
@@ -432,19 +431,25 @@ public class MatrixMultiplication {
 
         // recursively call strassens
         int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2);
+        int[][] AFH = multiply(new Matrices(A, subtract(new Matrices(F, H))));
         int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2);
         int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2);
         int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2);
         int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2);
         int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2);
         int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2);
+        System.out.println(Arrays.deepToString(P5));
+        System.out.println(Arrays.deepToString(P4));
+        System.out.println(Arrays.deepToString(P2));
+        System.out.println(Arrays.deepToString(P6));
 
         // get new matrix values
-        int[][] AE_BG = subtract(new Matrices(add(new Matrices(P5, P4)), add(new Matrices(P2, P6))));
+        int[][] AE_BG = add(new Matrices(subtract(new Matrices(add(new Matrices(P5, P4)), P2)), P6));
         int[][] AF_BH = add(new Matrices(P1, P2));
         int[][] CE_DG = add(new Matrices(P3, P4));
-        int[][] CF_DH = subtract(new Matrices(add(new Matrices(P5, P1)), subtract(new Matrices(P3, P7))));
-//        System.out.println(Arrays.deepToString(AE_BG));
+        int[][] CF_DH = subtract(new Matrices(subtract(new Matrices(add(new Matrices(P5, P1)), P3)), P7));
+
+
         // get final matrix
         int [][] result = new int[n][n];
         for (int i = 0; i < n/2; i++) {
