@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38de3b3b-fdd4-4b19-8b44-694571ddde5b" name="Default" comment="">
-      <change type="DELETED" beforePath="$USER_HOME$/README.md" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/codestyles/Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/debugger.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/dimensions.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/extensionsRootType.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/feature.usage.statistics.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/images.support.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/jdk.table.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/keymap.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/laf.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/options.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/path.macros.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/project.default.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/recentProjects.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.application.usages.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/stubIndex.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/window.manager.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/node-shell/bash.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/models/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/public/stylesheets/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/routes/users.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/routes/wiki.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/test/itsalive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/test/page.model.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/addpage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/editpage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/error.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/layout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/userlist.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/userpages.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../../../../workshops/wikiTest/views/wikipage.html" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,23 +62,21 @@
       <file leaf-file-name="MatrixMultiplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="434" column="24" lean-forward="false" selection-start-line="434" selection-start-column="24" selection-end-line="434" selection-end-column="24" />
+            <state relative-caret-position="140">
+              <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#277#278#0" expanded="true" />
                 <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
-                <element signature="method#makeFile#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-                <element signature="method#chunk#0;class#MatrixMultiplication#0" expanded="false" />
+                <element signature="e#13360#13361#0" expanded="true" />
+                <element signature="e#13422#13423#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,8 +85,8 @@
       <file leaf-file-name="MatrixMultiplicationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="183" column="39" lean-forward="true" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
+            <state relative-caret-position="180">
+              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
                 <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
@@ -79,6 +110,9 @@
       <find>readfile</find>
       <find>standard</find>
       <find>hyb</find>
+      <find>system.out</find>
+      <find>system</find>
+      <find>System</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,8 +136,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="873" />
+    <option name="width" value="1280" />
+    <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -121,8 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -155,12 +188,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -169,6 +206,18 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="JUnit.MatrixMultiplicationTest.strassens">
     <configuration default="false" name="MatrixMultiplicationTest.makeFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -524,58 +573,57 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 25m 44s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 54m 08s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 27m 07s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 01s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 30m 45s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 16s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 32m 42s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 55m 56s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 33m 11s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 56m 23s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 33m 53s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 57m 28s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 34m 08s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 57m 47s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 34m 35s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 58m 04s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 41m 08s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 48s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 16h 41m 52s.xml">
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 54s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="725" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3246951" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3290653" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33830845" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33689025" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="1.0" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26041666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26015624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -588,6 +636,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3397711" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -610,19 +659,49 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#makeFile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#chunk#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="183" column="39" lean-forward="true" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
+          <folding>
+            <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
+            <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -644,19 +723,17 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#makeFile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#chunk#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -678,19 +755,17 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#makeFile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#chunk#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,18 +806,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/M512">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4365">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/M512" />
     <entry file="file://$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="183" column="39" lean-forward="true" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
+        <state relative-caret-position="180">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <element signature="method#standard#0;class#MatrixMultiplicationTest#0" expanded="false" />
             <element signature="method#makeFile#0;class#MatrixMultiplicationTest#0" expanded="false" />
@@ -752,26 +820,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="434" column="24" lean-forward="false" selection-start-line="434" selection-start-column="24" selection-end-line="434" selection-end-column="24" />
+        <state relative-caret-position="140">
+          <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#0;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#Matrices#1;class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#makeFile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#printfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#readfile#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#multiply#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="method#chunk#0;class#MatrixMultiplication#0" expanded="false" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Programming Assignment 2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
