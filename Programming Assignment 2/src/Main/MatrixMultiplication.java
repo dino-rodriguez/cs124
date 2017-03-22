@@ -394,6 +394,7 @@ public class MatrixMultiplication {
         int[][] F = new int[n/2][n/2];
         int[][] G = new int[n/2][n/2];
         int[][] H = new int[n/2][n/2];
+        System.out.println(Arrays.deepToString(C));
 
         // chunk matrices
         for (int i = 0; i < n/2; i++) {

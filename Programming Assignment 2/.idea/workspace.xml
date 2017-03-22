@@ -62,8 +62,8 @@
       <file leaf-file-name="MatrixMultiplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="416" column="18" lean-forward="false" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
+            <state relative-caret-position="140">
+              <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
@@ -75,8 +75,8 @@
                 <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
                 <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-                <element signature="e#13308#13309#0" expanded="true" />
-                <element signature="e#13370#13371#0" expanded="true" />
+                <element signature="e#13360#13361#0" expanded="true" />
+                <element signature="e#13422#13423#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -573,12 +573,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 48m 31s.xml">
-      <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 53m 28s.xml">
-      <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 54m 08s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
@@ -601,6 +595,12 @@
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 58m 04s.xml">
+      <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 48s.xml">
+      <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MatrixMultiplicationTest_strassens - 2017.03.22 at 17h 59m 54s.xml">
       <configuration name="MatrixMultiplicationTest.strassens" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -668,8 +668,8 @@
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13308#13309#0" expanded="true" />
-            <element signature="e#13370#13371#0" expanded="true" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,8 +700,8 @@
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13308#13309#0" expanded="true" />
-            <element signature="e#13370#13371#0" expanded="true" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,8 +732,8 @@
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13308#13309#0" expanded="true" />
-            <element signature="e#13370#13371#0" expanded="true" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -764,8 +764,8 @@
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13308#13309#0" expanded="true" />
-            <element signature="e#13370#13371#0" expanded="true" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -820,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/MatrixMultiplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="416" column="18" lean-forward="false" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
+        <state relative-caret-position="140">
+          <caret line="396" column="51" lean-forward="false" selection-start-line="396" selection-start-column="51" selection-end-line="396" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#Matrices#0;class#MatrixMultiplication#0" expanded="false" />
@@ -833,8 +833,8 @@
             <element signature="method#add#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#subtract#0;class#MatrixMultiplication#0" expanded="false" />
             <element signature="method#hybrid#0;class#MatrixMultiplication#0" expanded="false" />
-            <element signature="e#13308#13309#0" expanded="true" />
-            <element signature="e#13370#13371#0" expanded="true" />
+            <element signature="e#13360#13361#0" expanded="true" />
+            <element signature="e#13422#13423#0" expanded="true" />
           </folding>
         </state>
       </provider>
