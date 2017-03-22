@@ -1,0 +1,21 @@
+PART A
+There are 30 timesteps per cascade.
+There are 100 cascades.
+Node 13 in cascade 6 has its opinion activated at timestep 2.
+
+PART B
+The average out degree is 5.23.
+The number of nodes in the network is 30.
+
+PART C
+For argument (10, 4, 1, opinions[0]) the output is 1.
+
+PART D
+For edge (1, 2) the MLE is 0.67.
+For edge (26, 21) the MLE is 0.3.
+
+PART E
+The node with the highest avg. edge weight is 11, with an avg. weight of 0.52.
+The node with the lowest avg. edge weight is 2, with an avg. weight of 0.15.
+The node that is activated first, on average, is 11, with an avg. activation index of 0.0.
+The node that is activated last, on average, is 21, with an avg. activation index of 0.62.
