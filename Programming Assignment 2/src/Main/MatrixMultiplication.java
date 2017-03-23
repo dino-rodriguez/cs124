@@ -385,15 +385,18 @@ public class MatrixMultiplication {
         int[][] M1 = M.getM1(); // array to buffer matrix A
         int[][] M2 = M.getM2(); // array to buffer matrix B
 
+        // fix if matrices need to be padded
+        int f = n % 2;
+
         // declare open matrices
         int[][] A = new int[n/2][n/2];
-        int[][] B = new int[n/2][n/2];
-        int[][] C = new int[n/2][n/2];
-        int[][] D = new int[n/2][n/2];
+        int[][] B = new int[n/2][(n+f)/2];
+        int[][] C = new int[(n+f)/2][n/2];
+        int[][] D = new int[(n+f)/2][(n+f)/2];
         int[][] E = new int[n/2][n/2];
-        int[][] F = new int[n/2][n/2];
-        int[][] G = new int[n/2][n/2];
-        int[][] H = new int[n/2][n/2];
+        int[][] F = new int[n/2][(n+f)/2];
+        int[][] G = new int[(n+f)/2][n/2];
+        int[][] H = new int[(n+f)/2][(n+f)/2];
 
         // chunk matrices
         for (int i = 0; i < n/2; i++) {
@@ -408,13 +411,37 @@ public class MatrixMultiplication {
                 H[i][j] = M2[i+(n/2)][j+(n/2)];
             }
         }
+
+        // pad arrays if n is odd
+        if (f == 1) {
+            for (int i = 0; i < n/2; i++) {
+                // pad right
+                B[i][n/2] = 0;
+                F[i][n/2] = 0;
+
+                // pad bottom
+                C[n/2][i] = 0;
+                G[n/2][i] = 0;
+
+                // pad right and bottom
+                D[n/2][i] = 0;
+                D[i][n/2] = 0;
+                H[n/2][i] = 0;
+                H[i][n/2] = 0;
+            }
+
+            // pad final bottom right corner of both matrices
+            D[n/2][n/2] = 0;
+            H[n/2][n/2] = 0;
+        }
+
         return new Matrices(A, B, C, D, E, F, G, H);
     }
 
     // strassen's matrix multiplication
     public int[][] strassens(Matrices M, int n) {
         // base case
-        if (n == 1) {
+        if (n <= 36) {
             return multiply(M);
         }
 
@@ -430,18 +457,14 @@ public class MatrixMultiplication {
         int[][] H = chunked.getM8();
 
         // recursively call strassens
-        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2);
+        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), (n)/2);
         int[][] AFH = multiply(new Matrices(A, subtract(new Matrices(F, H))));
-        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2);
-        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2);
-        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2);
-        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2);
-        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2);
-        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2);
-        System.out.println(Arrays.deepToString(P5));
-        System.out.println(Arrays.deepToString(P4));
-        System.out.println(Arrays.deepToString(P2));
-        System.out.println(Arrays.deepToString(P6));
+        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), (n)/2);
+        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), (n)/2);
+        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), (n)/2);
+        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), (n)/2);
+        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), (n)/2);
+        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), (n)/2);
 
         // get new matrix values
         int[][] AE_BG = add(new Matrices(subtract(new Matrices(add(new Matrices(P5, P4)), P2)), P6));
@@ -452,12 +475,12 @@ public class MatrixMultiplication {
 
         // get final matrix
         int [][] result = new int[n][n];
-        for (int i = 0; i < n/2; i++) {
-            for (int j = 0; j < n/2; j++) {
+        for (int i = 0; i < (n)/2; i++) {
+            for (int j = 0; j < (n)/2; j++) {
                 result[i][j] = AE_BG[i][j];
-                result[i+(n/2)][j] = CE_DG[i][j];
-                result[i][j+(n/2)] = AF_BH[i][j];
-                result[i+(n/2)][j+(n/2)] = CF_DH[i][j];
+                result[i+((n)/2)][j] = CE_DG[i][j];
+                result[i][j+((n)/2)] = AF_BH[i][j];
+                result[i+((n)/2)][j+((n)/2)] = CF_DH[i][j];
             }
         }
 
