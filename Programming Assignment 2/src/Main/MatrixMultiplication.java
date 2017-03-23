@@ -441,7 +441,7 @@ public class MatrixMultiplication {
     // strassen's matrix multiplication
     public int[][] strassens(Matrices M, int n) {
         // base case
-        if (n <= 36) {
+        if (n <= 10) {
             return multiply(M);
         }
 
@@ -456,15 +456,18 @@ public class MatrixMultiplication {
         int[][] G = chunked.getM7();
         int[][] H = chunked.getM8();
 
+        // if odd
+        n += n % 2;
+
         // recursively call strassens
-        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), (n)/2);
+        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2);
         int[][] AFH = multiply(new Matrices(A, subtract(new Matrices(F, H))));
-        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), (n)/2);
-        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), (n)/2);
-        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), (n)/2);
-        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), (n)/2);
-        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), (n)/2);
-        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), (n)/2);
+        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2);
+        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2);
+        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2);
+        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2);
+        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2);
+        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2);
 
         // get new matrix values
         int[][] AE_BG = add(new Matrices(subtract(new Matrices(add(new Matrices(P5, P4)), P2)), P6));
@@ -475,8 +478,8 @@ public class MatrixMultiplication {
 
         // get final matrix
         int [][] result = new int[n][n];
-        for (int i = 0; i < (n)/2; i++) {
-            for (int j = 0; j < (n)/2; j++) {
+        for (int i = 0; i < n/2; i++) {
+            for (int j = 0; j < n/2; j++) {
                 result[i][j] = AE_BG[i][j];
                 result[i+((n)/2)][j] = CE_DG[i][j];
                 result[i][j+((n)/2)] = AF_BH[i][j];
