@@ -1,8 +1,6 @@
 package Main;
 
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 /**
  * Created by dinorodriguez on 3/19/17.
@@ -263,6 +261,107 @@ public class MatrixMultiplication {
         return new Matrices(A, B);
     }
 
+    // confirm two files are the same
+    public boolean samefile(String filename1, String filename2) {
+        FileReader f_reader1 = null;
+        FileReader f_reader2 = null;
+        BufferedReader b_reader1 = null;
+        BufferedReader b_reader2 = null;
+        int count = 0;
+
+        try {
+            // create classes
+            f_reader1 = new FileReader(filename1);
+            b_reader1 = new BufferedReader(f_reader1);
+            f_reader2 = new FileReader(filename2);
+            b_reader2 = new BufferedReader(f_reader2);
+
+
+            String line1 = b_reader1.readLine();
+            String line2 = b_reader2.readLine();
+
+            // read through both files comparing each number
+            while (line1 != null) {
+                if (Integer.parseInt(line1) != Integer.parseInt(line2)) {
+                    return false;
+                }
+                else {
+                    line1 = b_reader1.readLine();
+                    line2 = b_reader2.readLine();
+                }
+            }
+        }
+        catch(IOException ex1) {
+            ex1.printStackTrace();
+        }
+
+        // close instances of readers
+        finally {
+
+            try {
+                if (b_reader1 != null) {
+                    b_reader1.close();
+                }
+                if (f_reader1 != null) {
+                    f_reader1.close();
+                }
+                if (b_reader2 != null) {
+                    b_reader2.close();
+                }
+                if (f_reader2 != null) {
+                    f_reader2.close();
+                }
+            }
+
+            catch(IOException ex2) {
+                ex2.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    // function to find experimental crossover
+    public int crossover(int[][] A, int[][] B) {
+
+        int b = 1; // base case
+
+        // time from initial base
+        long startTime = System.nanoTime();
+        strassens(new Matrices(A, B), A[0].length, b);
+        long endTime = System.nanoTime();
+        long stras = (endTime - startTime);
+
+        // time from one ahead
+        startTime = System.nanoTime();
+        multiply(new Matrices(A, B));
+        endTime = System.nanoTime();
+        long stand = (endTime - startTime);
+        System.out.println(stand);
+
+        // find experimental crossover point
+        while (stand < stras) {
+
+            System.out.println(stras);
+            // pause case
+            if (b > 100) {
+                System.out.print("Optimal not yet found. Start from base " +
+                        "100, and rerun function.");
+                return -1;
+            }
+
+            // update base
+            b += 1;
+
+            // iterate strassen base up 1
+            startTime = System.nanoTime();
+            strassens(new Matrices(A, B), A[0].length, b+1);
+            endTime = System.nanoTime();
+            stras = (endTime - startTime);
+        }
+
+        return b;
+    }
+
     // hybrid matrix multiplication (given two matrices)
     public int[][] multiply(Matrices M) {
 
@@ -344,7 +443,7 @@ public class MatrixMultiplication {
                 C = multiply(M);
             }
             else {
-                C = strassens(M, this.dimension);
+                C = strassens(M, this.dimension, 15);
             }
 
             // write to output
@@ -384,19 +483,17 @@ public class MatrixMultiplication {
         // matrices to multiply
         int[][] M1 = M.getM1(); // array to buffer matrix A
         int[][] M2 = M.getM2(); // array to buffer matrix B
-
-        // fix if matrices need to be padded
-        int f = n % 2;
+        
 
         // declare open matrices
         int[][] A = new int[n/2][n/2];
-        int[][] B = new int[n/2][(n+f)/2];
-        int[][] C = new int[(n+f)/2][n/2];
-        int[][] D = new int[(n+f)/2][(n+f)/2];
+        int[][] B = new int[n/2][n/2];
+        int[][] C = new int[n/2][n/2];
+        int[][] D = new int[n/2][n/2];
         int[][] E = new int[n/2][n/2];
-        int[][] F = new int[n/2][(n+f)/2];
-        int[][] G = new int[(n+f)/2][n/2];
-        int[][] H = new int[(n+f)/2][(n+f)/2];
+        int[][] F = new int[n/2][n/2];
+        int[][] G = new int[n/2][n/2];
+        int[][] H = new int[n/2][n/2];
 
         // chunk matrices
         for (int i = 0; i < n/2; i++) {
@@ -412,36 +509,30 @@ public class MatrixMultiplication {
             }
         }
 
-        // pad arrays if n is odd
-        if (f == 1) {
-            for (int i = 0; i < n/2; i++) {
-                // pad right
-                B[i][n/2] = 0;
-                F[i][n/2] = 0;
-
-                // pad bottom
-                C[n/2][i] = 0;
-                G[n/2][i] = 0;
-
-                // pad right and bottom
-                D[n/2][i] = 0;
-                D[i][n/2] = 0;
-                H[n/2][i] = 0;
-                H[i][n/2] = 0;
-            }
-
-            // pad final bottom right corner of both matrices
-            D[n/2][n/2] = 0;
-            H[n/2][n/2] = 0;
-        }
-
         return new Matrices(A, B, C, D, E, F, G, H);
     }
 
     // strassen's matrix multiplication
-    public int[][] strassens(Matrices M, int n) {
+    public int[][] strassens(Matrices M, int n, int base) {
+
+        // if the matrices are odd, pad them
+        if (n % 2 == 1 && n != 2) {
+            // matrices large enough for padding
+            int[][] newM1 = new int[n+1][n+1];
+            int[][] newM2 = new int[n+1][n+1];
+
+            // fill matrices
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    newM1[i][j] = M.getM1()[i][j];
+                    newM2[i][j] = M.getM2()[i][j];
+                }
+            }
+            return strassens(new Matrices(newM1, newM2), n+1, 15);
+        }
+
         // base case
-        if (n <= 10) {
+        if (n <= base) {
             return multiply(M);
         }
 
@@ -455,19 +546,16 @@ public class MatrixMultiplication {
         int[][] F = chunked.getM6();
         int[][] G = chunked.getM7();
         int[][] H = chunked.getM8();
-
-        // if odd
-        n += n % 2;
+        
 
         // recursively call strassens
-        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2);
-        int[][] AFH = multiply(new Matrices(A, subtract(new Matrices(F, H))));
-        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2);
-        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2);
-        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2);
-        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2);
-        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2);
-        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2);
+        int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2, 15);
+        int[][] P2 = strassens(new Matrices(add(new Matrices(A, B)), H), n/2, 15);
+        int[][] P3 = strassens(new Matrices(add(new Matrices(C, D)), E), n/2, 15);
+        int[][] P4 = strassens(new Matrices(D, subtract(new Matrices(G, E))), n/2, 15);
+        int[][] P5 = strassens(new Matrices(add(new Matrices(A, D)), add(new Matrices(E, H))), n/2, 15);
+        int[][] P6 = strassens(new Matrices(subtract(new Matrices(B, D)), add(new Matrices(G, H))), n/2, 15);
+        int[][] P7 = strassens(new Matrices(subtract(new Matrices(A, C)), add(new Matrices(E, F))), n/2, 15);
 
         // get new matrix values
         int[][] AE_BG = add(new Matrices(subtract(new Matrices(add(new Matrices(P5, P4)), P2)), P6));
@@ -488,16 +576,6 @@ public class MatrixMultiplication {
         }
 
         return result;
-    }
-
-    // set dimension
-    public void setDimension(int d) {
-        this.dimension = d;
-    }
-
-    // get dimension
-    public int getDimension() {
-        return this.dimension;
     }
 
     // main

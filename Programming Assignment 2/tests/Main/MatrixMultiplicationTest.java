@@ -7,6 +7,27 @@ import org.junit.jupiter.api.Test;
  */
 class MatrixMultiplicationTest {
 
+    @Test
+    void crossover() {
+
+        // 757 by 757 matrix
+        int[][] A = new int[757][757];
+        for (int i = 0; i < 757; i++) {
+            for (int j = 0; j < 757; j++) {
+                // generate random number from 0 to 100
+                A[i][j] = (int) (Math.random() * 100);
+            }
+        }
+
+        MatrixMultiplication M757 = new MatrixMultiplication(757);
+
+        // find optimal crossover
+        System.out.println("Experimental crossover: " + M757.crossover(A, A));
+
+
+
+    }
+
     @org.junit.jupiter.api.Disabled
     @Test
     void standard() {
@@ -153,12 +174,6 @@ class MatrixMultiplicationTest {
 
     @org.junit.jupiter.api.Disabled
     @Test
-    void main() {
-
-    }
-
-    @org.junit.jupiter.api.Disabled
-    @Test
     void strassens() {
 
         // 4 x 4 matrix
@@ -265,6 +280,8 @@ class MatrixMultiplicationTest {
 
     }
 
+
+    @org.junit.jupiter.api.Disabled
     @Test
     void moreStrassens() {
 
@@ -293,23 +310,39 @@ class MatrixMultiplicationTest {
 
         // now testing large odd matrix against standard multiplication
         // 543 by 543 matrix
-        String[][] D = new String[21][21];
-        for (int i = 0; i < 21; i++) {
-            for (int j = 0; j < 21; j++) {
+        String[][] D = new String[1555][1555];
+        for (int i = 0; i < 1555; i++) {
+            for (int j = 0; j < 1555; j++) {
                 // generate random number from 0 to 100
                 D[i][j] = Integer.toString((int) (Math.random() * 100));
             }
         }
 
-        MatrixMultiplication M543 = new MatrixMultiplication(21);
+        MatrixMultiplication M1555 = new MatrixMultiplication(1555);
 
-        System.out.println("543 x 543 Inputs: \n");
-        assert(M543.makeFile(D, D, "M543stras") == 0);
-        assert(M543.makeFile(D, D, "M543stand") == 0);
+        System.out.println("1555 x 1555 Inputs: \n");
+        assert(M1555.makeFile(D, D, "M1555stras") == 0);
+        assert(M1555.makeFile(D, D, "M1555stand") == 0);
 
         // make same matrix with both strassens and standard
-        M543.hybrid("M543stras", 0);
-        M543.hybrid("M543stand", 1);
+
+        M1555.hybrid("M1555stand", 1);
+
+        // no return of matrix, just the time it takes to calculate
+        int startTime = (int) System.nanoTime();
+        M1555.hybrid("M1555stand", 0);
+        int endTime = (int) System.nanoTime();
+        int duration = (endTime - startTime) / 1000000;
+        System.out.println("Standard: " + duration + " milliseconds\n");
+
+        startTime = (int) System.nanoTime();
+        M1555.hybrid("M1555stras", 1);
+        endTime = (int) System.nanoTime();
+        duration = (endTime - startTime) / 1000000;
+        System.out.println("Strass: " + duration + " milliseconds\n");
+
+        System.out.println(M1555.samefile("M1555standout", "M1555strasout"));
+        System.out.println(M1555.samefile("M1555standout", "M543strasout"));
 
     }
 }
