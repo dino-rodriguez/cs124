@@ -4,18 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38de3b3b-fdd4-4b19-8b44-694571ddde5b" name="Default" comment="Done! Need to fix tests.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Programming Assignment 2/Main/MatrixMultiplication$Matrices.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Programming Assignment 2/Main/MatrixMultiplication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Programming Assignment 2/Main/MatrixMultiplicationTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/Programming Assignment 2/Main/Timings.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Main/MatrixMultiplicationTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Main/Timings.txt" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Main/MatrixMultiplication.java" afterPath="$PROJECT_DIR$/src/strassen.java" />
+    <list default="true" id="38de3b3b-fdd4-4b19-8b44-694571ddde5b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Programming Assignment 2.iml" afterPath="$PROJECT_DIR$/Programming Assignment 2.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,6 +105,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="d" />
         <option value="Dino Rodriguez" />
       </list>
     </option>
@@ -646,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490249478643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Done! Need to fix tests.">
+      <created>1490382887030</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490382887030</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -700,7 +698,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="1.0" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15307583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15307583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32736573" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -722,7 +720,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Padding almost working" />
     <MESSAGE value="Padding done. Crossover point currently underway. Need to fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Padding done. Crossover point currently underway. Need to fix." />
+    <MESSAGE value="Done! Need to fix tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Done! Need to fix tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1069,8 +1068,8 @@
         <state relative-caret-position="-2040">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490382347000" expanded="true" signature="69591:69608" ph="..." />
-            <marker date="1490382347000" expanded="true" signature="69591:69639" ph="..." />
+            <marker date="1490382879000" expanded="true" signature="69592:69609" ph="..." />
+            <marker date="1490382879000" expanded="true" signature="69592:69640" ph="..." />
           </folding>
         </state>
       </provider>
