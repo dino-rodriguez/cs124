@@ -926,9 +926,6 @@ public class strassen {
 
     // main
     public static void main(String[] args) {
-
-        System.out.println("Matrices Multiplication.");
-
         // check for proper number of arguments
         if (args.length != 3) {
             System.out.println("Error: Please input arguments as: 0 <dimension> <inputfile>");
