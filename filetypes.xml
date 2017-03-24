@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="makefile" type="PLAIN_TEXT" />
       <mapping pattern="M543standout" type="PLAIN_TEXT" />
+      <mapping pattern="test" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
