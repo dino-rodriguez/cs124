@@ -447,7 +447,7 @@ public class strassen {
     }
 
     // hybrid matrix multiplication (given a file)
-    public void hybrid(String filename, int flag) {
+    public void hybrid(String filename, int flag, int cross) {
 
         BufferedWriter b_writer = null;
         FileWriter f_writer = null;
@@ -462,7 +462,7 @@ public class strassen {
         }
 
         else {
-            C = strassens(M, this.dimension, crossover(5));
+            C = strassens(M, this.dimension, cross);
         }
 
         // write to output
@@ -477,7 +477,7 @@ public class strassen {
         // matrices to fast_multiply
         int[][] M1 = M.getM1(); // array to buffer matrix A
         int[][] M2 = M.getM2(); // array to buffer matrix B
-        
+
 
         // declare open matrices
         int[][] A = new int[n/2][n/2];
@@ -540,7 +540,7 @@ public class strassen {
         int[][] F = chunked.getM6();
         int[][] G = chunked.getM7();
         int[][] H = chunked.getM8();
-        
+
 
         // recursively call strassen
         int[][] P1 = strassens(new Matrices(A, subtract(new Matrices(F, H))), n/2, base);
@@ -598,11 +598,12 @@ public class strassen {
         System.out.println("STANDARD: \n");
         System.out.println("4 x 4 Inputs: \n");
         assert(M4.makeFile(A, A, "M4") == 0);
+        System.out.println("sagdas");
         M4.printfile("M4");
         System.out.println('\n');
 
         // outputs
-        M4.hybrid("M4", 0);
+        M4.hybrid("M4", 0, 0);
         M4.printfile("M4out");
 
 
@@ -620,7 +621,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M1.hybrid("M1", 0);
+        M1.hybrid("M1", 0, 0);
         M1.printfile("M1out");
 
 
@@ -639,7 +640,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M2.hybrid("M2", 0);
+        M2.hybrid("M2", 0, 0);
         M2.printfile("M2out");
 
 
@@ -659,7 +660,7 @@ public class strassen {
 
         // no return of matrix, just the time it takes to calculate
         long startTime = System.nanoTime();
-        M512.hybrid("M512", 0);
+        M512.hybrid("M512", 0, 0);
         long endTime = System.nanoTime();
         long duration = (endTime - startTime) / 1000000;
         System.out.println(duration + " milliseconds");
@@ -681,7 +682,7 @@ public class strassen {
 
         // no return of matrix, just the time it takes to calculate
         startTime = System.nanoTime();
-        M1024.hybrid("M1024", 0);
+        M1024.hybrid("M1024", 0, 0);
         endTime = System.nanoTime();
         duration = (endTime - startTime) / 1000000;
         System.out.println(duration + " milliseconds\n");
@@ -740,7 +741,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M4.hybrid("M4", 1);
+        M4.hybrid("M4", 1, M4.crossover(5));
         M4.printfile("M4out");
 
 
@@ -758,7 +759,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M1.hybrid("M1", 1);
+        M1.hybrid("M1", 1, M1.crossover(5));
         M1.printfile("M1out");
 
 
@@ -777,7 +778,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M2.hybrid("M2", 1);
+        M2.hybrid("M2", 1, M2.crossover(5));
         M2.printfile("M2out");
 
 
@@ -797,7 +798,7 @@ public class strassen {
 
         // no return of matrix, just the time it takes to calculate
         long startTime = System.nanoTime();
-        M512.hybrid("M512", 1);
+        M512.hybrid("M512", 1, M512.crossover(5));
         long endTime = System.nanoTime();
         long duration = (endTime - startTime) / 1000000;
         System.out.println(duration + " milliseconds");
@@ -819,7 +820,7 @@ public class strassen {
 
         // no return of matrix, just the time it takes to calculate
         startTime = System.nanoTime();
-        M1024.hybrid("M1024", 1);
+        M1024.hybrid("M1024", 1, M1024.crossover(5));
         endTime = System.nanoTime();
         duration = (endTime - startTime) / 1000000;
         System.out.println(duration + " milliseconds\n");
@@ -848,7 +849,7 @@ public class strassen {
         System.out.println('\n');
 
         // outputs
-        M5.hybrid("M5", 1);
+        M5.hybrid("M5", 1, M5.crossover(5));
         M5.printfile("M5out");
 
         // now testing large odd matrix against standard multiplication
@@ -869,17 +870,17 @@ public class strassen {
 
         // make same matrix with both strassen and standard
 
-        M1555.hybrid("M1555stand", 1);
+        M1555.hybrid("M1555stand", 1, M1555.crossover(5));
 
         // no return of matrix, just the time it takes to calculate
         int startTime = (int) System.nanoTime();
-        M1555.hybrid("M1555stand", 0);
+        M1555.hybrid("M1555stand", 0, 0);
         int endTime = (int) System.nanoTime();
         int duration = (endTime - startTime) / 1000000;
         System.out.println("Standard: " + duration + " milliseconds\n");
 
         startTime = (int) System.nanoTime();
-        M1555.hybrid("M1555stras", 1);
+        M1555.hybrid("M1555stras", 1, M1555.crossover(5));
         endTime = (int) System.nanoTime();
         duration = (endTime - startTime) / 1000000;
         System.out.println("Strass: " + duration + " milliseconds\n");
@@ -915,8 +916,8 @@ public class strassen {
             assert(M.makeFile(A, B,"Mstand") == 0);
             assert(M.makeFile(A, B,"Mstras") == 0);
 
-            M.hybrid("Mstand", 0);
-            M.hybrid("Mstras", 1);
+            M.hybrid("Mstand", 0, M.crossover(5));
+            M.hybrid("Mstras", 1, M.crossover(5));
 
             same = same && M.samefile("Mstand", "Mstras");
         }
@@ -940,25 +941,14 @@ public class strassen {
             if (flag == 0) {
                 // run strassens
                 strassen M = new strassen(dim);
-                M.hybrid(file, 1); // pass with flag run to do strassens
+                int cross = M.crossover(5);
+                M.hybrid(file, 1, M.crossover(5)); // pass with flag run to do strassens
             }
 
-            // testing flag
+            // flag for timings
             if (flag == 1) {
-                strassen M = new strassen(1);
-                System.out.println("Running Tests.");
-                M.crossoverTest();
-                System.out.println("Crossover tests passed.");
-                M.standardTest();
-                System.out.println("Standard and fast matrix multiplication tests passed.");
-                M.makeFileTest();
-                System.out.println("File making tests passed.");
-                M.strassensTest();
-                M.moreStrassensTest();
-                M.rigorousTest();
-                System.out.println("Strassens passed.");
+                strassen M = new strassen(dim);
             }
         }
     }
 }
-
