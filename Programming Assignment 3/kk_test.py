@@ -33,7 +33,7 @@ def residualsTest():
     P = KK.transformStandard(S)
     assert(KK.standardResidue(A, S) == KK.prepartitionResidue(A, P))
 
-
+# function to get numerical data over multiple runs
 def algoTest():
 
     max_iter = 25000 # use 25000 for actual trials
@@ -64,9 +64,67 @@ def algoTest():
             writer.writerow(row)
 
 
+# function to get timing data over multiple runs
+def timingTest():
+    max_iter = 25000 # use 25000 for actual trials
+    row = ["KK_results", "SRRR_results", "SRHC_results", "SRSA_results",
+           "PRRR_results", "PRHC_results", "PRSA_results"]
+
+    with open("timing.csv", "wb") as csv_file:
+        # build csv writer and progress bar
+        writer = csv.writer(csv_file, delimiter=',')
+        writer.writerow(row)
+        bar = progressbar.ProgressBar()
+
+        for i in bar(range(10)): # switch to 100 for actual trials
+            # show progressbar
+            time.sleep(0.02)
+
+            # get row
+            A = KK.randomSet(100, not Main.flag) # generate random A
+
+            start = time.clock()
+            KK.diffKK(A, not Main.flag) # run KK
+            end = time.clock()
+            row[0] = (end - start)
+
+            start = time.clock()
+            KK.repRandom(A, max_iter, 's', not Main.flag)
+            end = time.clock()
+            row[1] = (end - start)
+
+            start = time.clock()
+            KK.hillClimb(A, max_iter, 's', not Main.flag)
+            end = time.clock()
+            row[2] = (end - start)
+
+            start = time.clock()
+            KK.simAnneal(A, max_iter, 's', not Main.flag)
+            end = time.clock()
+            row[3] = (end - start)
+
+            start = time.clock()
+            KK.repRandom(A, max_iter, 'p', not Main.flag)
+            end = time.clock()
+            row[4] = (end - start)
+
+            start = time.clock()
+            KK.hillClimb(A, max_iter, 'p', not Main.flag)
+            end = time.clock()
+            row[5] = (end - start)
+
+            start = time.clock()
+            KK.simAnneal(A, max_iter, 'p', not Main.flag)
+            end = time.clock()
+            row[6] = (end - start)
+
+            # insert into data list
+            writer.writerow(row)
+
 ### Running Tests
 
-#diffKKTest()
-#prepartitionTest()
-#residualsTest()
+diffKKTest()
+prepartitionTest()
+residualsTest()
 algoTest()
+timingTest()
