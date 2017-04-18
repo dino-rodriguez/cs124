@@ -35,11 +35,15 @@ def diffKK(A, flag):
 
     if flag == 1: print A1
 
-    # get two max elements
+    # get first max
     a_i = max(A1)
-    A1.remove(a_i)
+    index_i = A1.index(a_i)
+    A1[index_i] = -1
+
+    # get second max
     a_j = max(A1)
-    A1.remove(a_j)
+    index_j = A1.index(a_j)
+    A1[index_j] = -1
 
     difference = abs(a_i - a_j) # difference of two elements
 
@@ -47,16 +51,24 @@ def diffKK(A, flag):
     while a_i != 0 and a_j != 0:
 
         # insert new elements into list
-        A1.append(difference)
-        A1.append(0)
+        if a_i > a_j:
+            A1[index_i] = difference
+            A1[index_j] = 0
+        else:
+            A1[index_i] = 0
+            A1[index_j] = difference
 
         if flag == 1: print A1
 
-        # get two max elements
+        # get first max
         a_i = max(A1)
-        A1.remove(a_i)
+        index_i = A1.index(a_i)
+        A1[index_i] = -1
+
+        # get second max
         a_j = max(A1)
-        A1.remove(a_j)
+        index_j = A1.index(a_j)
+        A1[index_j] = -1
 
         difference = abs(a_i - a_j) # difference of two elements
 
@@ -92,6 +104,17 @@ def prepartitionResidue(A, P):
     # return value from KK
     return abs(diffKK(A1, 0))
 
+# Transform a standard solution into a prepartintion solution
+    # S : set of integers selected from only {-1, 1}
+def transformStandard(S):
+    P = []
+    for i in range(len(S)):
+        if S[i] == -1:
+            P.append(2)
+        else:
+            P.append(1)
+    return S
+
 
 # Calculate the residue for a set of numbers A while enforcing standard
 # representation S
@@ -109,9 +132,16 @@ def standardResidue(A, S):
 def prepartitionNeighbor(P):
     P1 = P[:]
     n = len(P1)
-    i, j = random.sample(range(1, n + 1), 2)
-    i -= 1 # offset index by 1 as we're sampling from [1, n] inclusive
-    P1[i] = j
+
+    # make sure P[i] =/ j
+    while True:
+        i = random.randint(0, n - 1)
+        j = random.randint(0, n - 1)
+
+        # set P[i] = j
+        if P1[i] != j:
+            P1[i] = j
+            break
 
     return P1
 
@@ -121,7 +151,7 @@ def prepartitionNeighbor(P):
 def standardNeighbor(S):
     S1 = S[:]
     n = len(S1)
-    i, j = random.sample(S1, 2)
+    i, j = random.sample(range(n), 2)
 
     # switch element i
     S1[i] = -S1[i]
@@ -198,16 +228,18 @@ def simAnneal(A, max_iter, type_, flag):
     S = gen(A)
     S11 = S[:]
 
+    # cooling schedule
     def T(i):
         return (10 ** 10) * (0.8 ** (i // 300))
 
+    # sim anneal
     for i in range(max_iter):
         S1 = neighbor(S)
         if residue(A, S1) < residue(A, S):
             S = S1
-        # TODO: ensure probability to switch to worse neighbor is correct
-        elif random.uniform(0, 1) < math.exp(-(residue(A, S1) - residue(A, S)) / T(i)):
+        elif random.uniform(0, 1) < math.exp(float(-(residue(A, S1) - residue(A, S))) / T(i)):
             S = S1
+
         if residue(A, S) < residue(A, S11):
             S11 = S
 

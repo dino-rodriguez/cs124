@@ -7,52 +7,66 @@
 # libraries
 import kk_library as KK
 import kk as Main
+import csv
+import time
+import progressbar
+import timeit
 
 
-def randomSetTest():
-    return KK.randomSet(100, not Main.flag)
-
-
+# test differencing approach (maintaining order)
 def diffKKTest():
     A = [10, 8, 7, 6, 5]
     residue = KK.diffKK(A, not Main.flag)
+    assert(residue == 2)
 
-
+# test prepartition conversion then differencing approach
 def prepartitionTest():
     A = [10, 8, 7, 6, 5]
     P = [1, 2, 2, 4, 5]
     residue = KK.prepartitionResidue(A, P)
+    assert(residue == 4)
+
+# confirm that residuals of both methods given equivalent solutions line up
+def residualsTest():
+    A = KK.randomSet(10, not Main.flag)
+    S = KK.randomStandardRep(A)
+    P = KK.transformStandard(S)
+    assert(KK.standardResidue(A, S) == KK.prepartitionResidue(A, P))
 
 
 def algoTest():
-    # TODO: timing and avgs across trials for all algorithms
 
-    for i in range(1): # switch to 100 for actual trials
-        max_iter = 1000 # use 25000 for actual trials
-        A = KK.randomSet(100, not Main.flag)
-        kk_res = KK.diffKK(A, not Main.flag)
+    max_iter = 25000 # use 25000 for actual trials
+    row = ["KK_results", "SRRR_results", "SRHC_results", "SRSA_results",
+           "PRRR_results", "PRHC_results", "PRSA_results"]
 
-        s_rand_res = KK.repRandom(A, max_iter, 's', not Main.flag)
-        s_hill_res = KK.hillClimb(A, max_iter, 's', not Main.flag)
-        s_anneal_res = KK.simAnneal(A, max_iter, 's', not Main.flag)
+    with open("data.csv", "wb") as csv_file:
+        # build csv writer and progress bar
+        writer = csv.writer(csv_file, delimiter=',')
+        writer.writerow(row)
+        bar = progressbar.ProgressBar()
 
-        p_rand_res = KK.repRandom(A, max_iter, 'p', not Main.flag)
-        p_hill_res = KK.hillClimb(A, max_iter, 'p', not Main.flag)
-        p_anneal_res = KK.simAnneal(A, max_iter, 'p', not Main.flag)
+        for i in bar(range(100)): # switch to 100 for actual trials
+            # show progressbar
+            time.sleep(0.02)
 
-        print 'KK: {}'.format(kk_res)
+            # get row
+            A = KK.randomSet(100, not Main.flag) # generate random A
+            row[0] = KK.diffKK(A, not Main.flag) # run KK
+            row[1] = KK.repRandom(A, max_iter, 's', not Main.flag)
+            row[2] = KK.hillClimb(A, max_iter, 's', not Main.flag)
+            row[3] = KK.simAnneal(A, max_iter, 's', not Main.flag)
+            row[4] = KK.repRandom(A, max_iter, 'p', not Main.flag)
+            row[5] = KK.hillClimb(A, max_iter, 'p', not Main.flag)
+            row[6] = KK.simAnneal(A, max_iter, 'p', not Main.flag)
 
-        print 'Standard representation repeated random: {}'.format(s_rand_res)
-        print 'Standard representation hill climbing: {}'.format(s_hill_res)
-        print 'Standard representation simulated annealing: {}'.format(s_anneal_res)
-
-        print 'Prepartioning representation repeated random: {}'.format(p_rand_res)
-        print 'Prepartioning representation hill climbing: {}'.format(p_hill_res)
-        print 'Prepartioning representation simulated annealing: {}'.format(p_anneal_res)
+            # insert into data list
+            writer.writerow(row)
 
 
-# running tests
-randomSetTest()
-diffKKTest()
-prepartitionTest()
+### Running Tests
+
+#diffKKTest()
+#prepartitionTest()
+#residualsTest()
 algoTest()
